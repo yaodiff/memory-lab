@@ -104,7 +104,7 @@ def main():
         sources.append(added_lines(a.range))
     for m in a.message:
         with open(m, encoding="utf-8") as f:
-            sources.append((f"{m}:{i}", line) for i, line in enumerate(f, 1))
+            sources.append([(f"{m}:{i}", line) for i, line in enumerate(f, 1)])
 
     hits = 0
     for src in sources:
