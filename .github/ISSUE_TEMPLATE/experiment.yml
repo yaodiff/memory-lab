@@ -1,0 +1,26 @@
+name: Experiment
+description: A bench case set, a reproduction, or a new arm for Next-step Replay
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What result would change our mind about what?
+    validations:
+      required: true
+  - type: textarea
+    id: setup
+    attributes:
+      label: Setup
+      description: Public data or synthetic sessions only; arms; judges; sample size.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      placeholder: |
+        - [ ] ...
+    validations:
+      required: true

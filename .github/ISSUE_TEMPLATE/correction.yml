@@ -1,0 +1,22 @@
+name: Correction
+description: A factual error, a misquote, a broken link, or the two language versions disagree
+labels: ["bug"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: File and section, e.g. essays/02-reading-the-components.en.md, "Gate 2".
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is wrong
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Link or quote that shows the correct version.
