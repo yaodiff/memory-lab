@@ -64,6 +64,10 @@ docs/              related work, CoALA mapping
 
 Only public datasets and synthetic sessions on public open-source repositories. No proprietary code, sessions, or documents. Examples in the essays are rewritten or synthetic; internal measurements are given only as ratios or in coarse terms, with no raw data, and are labelled as small samples from our own setting.
 
+## Contributing
+
+Every change goes issue → PR → checks → squash merge; `main` is protected. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 Apache-2.0

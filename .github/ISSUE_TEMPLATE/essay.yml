@@ -1,0 +1,25 @@
+name: Essay
+description: Propose a new essay or a substantial revision
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: Write in Chinese or English. Never paste internal data, sessions, names or links.
+  - type: textarea
+    id: claim
+    attributes:
+      label: Main claim
+      description: The one sentence a reader should leave with.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Public sources, open reproductions, or internal findings stated only as ratios or coarse terms.
+    validations:
+      required: true
+  - type: textarea
+    id: outline
+    attributes:
+      label: Outline

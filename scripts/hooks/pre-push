@@ -1,0 +1,6 @@
+#!/bin/bash
+# Enable with: git config core.hooksPath scripts/hooks
+# Scans the tree you are pushing with the generic and your private patterns.
+set -euo pipefail
+cd "$(git rev-parse --show-toplevel)"
+python3 scripts/privacy_check.py --all --require-private
