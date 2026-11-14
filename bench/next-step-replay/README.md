@@ -15,7 +15,7 @@ Evaluate memory at the moment it should matter: **right before a human correctio
 }
 ```
 - `prefix` stops at the last user message before the correction. Nothing after it is kept.
-- `page_origin` is one of `other_session`, `same_session` or `after_correction`. **Report results separately for each value**: same-session pages leak the answer (see essays/02).
+- `page_origin` is one of `other_session`, `same_session` or `after_correction`. **Report results separately for each value**: same-session pages leak the answer (see essay 03, planned).
 
 ## Arms
 `no_memory` · `memory_search` (agent decides when to search) · `oracle_page` (the page is put in front of the agent) · `step_conditioned` (search takes a "next step" field)
