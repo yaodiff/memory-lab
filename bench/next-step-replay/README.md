@@ -59,8 +59,10 @@ Requirements: Python 3.10+, Bash, and a locally installed, already authenticated
 The real smoke uses existing first-party Claude CLI login. Model aliases and
 availability depend on the logged-in account.
 
-Recorded command, resolved model and ratio-only results:
-[bounded smoke evidence](SMOKE.md). This is not a full evaluation.
+Recorded commands, resolved models and ratio-only metrics:
+[bounded smoke evidence](SMOKE.md) and the
+[complete shipped-case pilot](FULL_RUN.md). The latter covers all six demo cases,
+not a representative or human-calibrated benchmark.
 
 From the repository root, run the bounded smoke:
 
@@ -133,7 +135,9 @@ length; this demo does not estimate a price or promise free quota.
 **Do not run a full evaluation before the owner chooses models and spending.**
 More than two cases requires both `--allow-full-run` and explicit
 `--planner-model`, `--judge-a-model`, `--judge-b-model`. That flag is an operator
-acknowledgment, not a substitute for owner approval. No full run has been made.
+acknowledgment, not a substitute for owner approval. An owner-approved complete
+run with the smoke configuration is recorded in [FULL_RUN.md](FULL_RUN.md).
+Expanded runs still require a new model/spending decision.
 
 ## Status
 - [x] Six synthetic cases on one permissively licensed public repo
@@ -141,5 +145,6 @@ acknowledgment, not a substitute for owner approval. No full run has been made.
 - [x] Two blind judges, point labels and origin-stratified agreement
 - [x] Offline validation, leakage guards and fake-CLI integration tests
 - [x] Bounded real-Claude CLI smoke, with ratio-only public evidence
+- [x] Complete shipped-case pilot with owner approval and preserved judge disagreements
 - [ ] `memory_search` and `step_conditioned` (reserved interfaces only)
-- [ ] Full evaluation and calibrated evidence of effectiveness
+- [ ] Human-calibrated, representative evidence of effectiveness
