@@ -2,7 +2,8 @@
 
 [English](README.md) · 中文
 
-> 状态：早期草稿，还没有任何东西跑过 benchmark。
+> 状态：早期草稿，Next-step Replay 已有可跑 demo。只跑过有数量限制的冒烟，
+> 还没有完整 benchmark 结果。
 
 **一句话**：评测编程 Agent 的团队记忆，我们问的是「它还会不会被纠正」，而不是「它能不能想起一个事实」。
 
@@ -58,7 +59,8 @@ docs/              相关工作、CoALA 对照
 - [ ] 评测：在 Next-step Replay 上加「回看记录、核对记忆」对照组（计划见第 02 篇）
 - [ ] 复现：Mem0 与全上下文在 LoCoMo 上的对比
 - [ ] 复现：A-MEM 链接演化在 LoCoMo 上的消融
-- [ ] 评测：Next-step Replay 在一个开源仓库上的 demo（5–10 个合成纠正）
+- [x] 评测：[Next-step Replay demo](bench/next-step-replay/README.md)（Click 上六个合成纠正；仅冒烟）
+- [ ] 评测：先由仓库主人确定模型和花费，再跑完整 Next-step Replay
 
 ## 数据政策
 

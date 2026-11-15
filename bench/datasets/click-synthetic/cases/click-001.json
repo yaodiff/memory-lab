@@ -1,0 +1,34 @@
+{
+  "id": "click-001",
+  "repo": "https://github.com/pallets/click",
+  "repo_revision": "934813e4d421",
+  "prefix": [
+    {
+      "role": "user",
+      "content": "In Click 8.1.8, add a regression test for a small cat-style command that takes a relative file path and echoes its contents. The fixture file should contain meadow and the command should succeed."
+    },
+    {
+      "role": "assistant",
+      "content": "I created sample.txt in the checkout root and drafted a test that calls cat.main([\"sample.txt\"]) directly. The draft currently checks only that no exception escapes."
+    },
+    {
+      "role": "user",
+      "content": "Before editing further, give me your next concrete test plan for this draft."
+    }
+  ],
+  "last_user_turn": "Before editing further, give me your next concrete test plan for this draft.",
+  "convention": {
+    "title": "Keep file-command test setup and invocation inside filesystem isolation",
+    "points": [
+      "Create the input fixture and invoke the file-consuming command inside the same CliRunner.isolated_filesystem context.",
+      "Exercise the command with CliRunner.invoke rather than directly calling its callback or cli.main.",
+      "Assert both successful exit status and the expected captured file content in the result."
+    ],
+    "scope": "Regression tests for Click commands that consume relative files; not production command implementation or unrelated unit tests."
+  },
+  "memory_pages": [
+    "pages/click-001.md"
+  ],
+  "page_origin": "other_session",
+  "held_out_correction": "Please do not leave fixtures in the checkout or call main directly. Create the file and invoke the command inside CliRunner.isolated_filesystem, then check exit status and captured meadow output."
+}

@@ -4,4 +4,5 @@ set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 python3 scripts/check_docs.py
 python3 scripts/pr_links_issue.py --self-test
+python3 -m unittest discover -s bench/next-step-replay -p 'test_*.py'
 python3 scripts/privacy_check.py --all
