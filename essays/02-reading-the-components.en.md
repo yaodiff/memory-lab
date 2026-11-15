@@ -78,7 +78,7 @@ Part of why this gets one sentence in their post, we suspect, is that most of th
 1. **No natural signal.** Searches are logged and page reads are logged. Following shows up only in later behaviour, and often only partly. Asking the agent to report "I used this" tells you it read the page, not that it followed it.
 2. **Judging has to go point by point.** A convention has several points, so "followed" means checking each one. A single right/wrong label swallows partial compliance. Judges are noisy too: rejudge the same batch with another model and some labels flip. So use at least two independent judges, report agreement, and read every disagreement.
 3. **It is tangled with the other two gates.** The final violation rate alone can't tell "not found" from "not followed".
-4. **Leakage contaminates it easily.** If the page was learned from the session under test, the memory arm has effectively seen the answer (essay 03 covers this).
+4. **Leakage contaminates it easily.** If the page was learned from the session under test, the memory arm has effectively seen the answer ([essay 03](03-same-session-leakage.en.md) covers this).
 
 **How Next-step Replay measures it**
 
@@ -143,4 +143,4 @@ A plan only. Nothing has been run.
 | Used | One sentence: loading doesn't guarantee acting | The leakiest gate: close to four in ten read in full but didn't fully follow; about one in five still violates with the page in front of it | Not developed in the post; the part we most want to add |
 | Consolidation | Check against the source; wikis bloat; many writers lose facts; tune instructions to the goal | Nearly half of crude merges were bad; about six in ten links held up under strict review; most threshold retirements should have been restored | Failure modes line up closely |
 
-Next: "Your memory eval may be inflated: same-session leakage".
+Next: ["Your memory eval may be inflated: same-session leakage"](03-same-session-leakage.en.md).

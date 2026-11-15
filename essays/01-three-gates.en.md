@@ -74,7 +74,7 @@ The evaluation works like this: take the step just before a correction in a real
 
 Only when we went through the cases one by one did we notice: in many of them **[number pending review]**, the page involved **had been learned from that very session**, sometimes updated only after the correction. The memory arm had effectively seen the answer in advance. On the clean cases, where the page came from another session and wasn't updated after the correction, **the gain was close to zero**.
 
-This deserves its own essay (essay 03). The conclusion is simple: **when evaluating team memory, split out same-session cases by page origin**, or the gain will be badly overstated.
+This deserves its own essay ([essay 03](03-same-session-leakage.en.md)). The conclusion is simple: **when evaluating team memory, split out same-session cases by page origin**, or the gain will be badly overstated.
 
 ## Another class of incident: pipelines that break silently
 
@@ -96,4 +96,4 @@ So **an empty retrieval result must carry a reason** (truly nothing / blocked / 
 | Used | Of the pages read in full, how many were followed? | Watching a single adoption rate |
 | Evaluation | Split out same-session cases; use two judges | Drawing conclusions from the overall comparison |
 
-Next: ["Reading Anthropic's 'components of agent memory' against field data from team memory"](02-reading-the-components.en.md). After that: "Your memory eval may be inflated: same-session leakage".
+Next: ["Reading Anthropic's 'components of agent memory' against field data from team memory"](02-reading-the-components.en.md). After that: ["Your memory eval may be inflated: same-session leakage"](03-same-session-leakage.en.md).
