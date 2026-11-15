@@ -1,0 +1,42 @@
+{
+  "id": "click-005",
+  "repo": "https://github.com/pallets/click",
+  "repo_revision": "934813e4d421",
+  "prefix": [
+    {
+      "role": "user",
+      "content": "In this session, ANSI-specific output tests should set color=True on CliRunner.invoke, assert an expected styling escape as well as the readable text, and leave production color defaults unchanged. This is not a rule to colorize all output tests."
+    },
+    {
+      "role": "assistant",
+      "content": "Understood. I will keep that rule scoped to these tests."
+    },
+    {
+      "role": "user",
+      "content": "Test a command that already prints Ready using green click.secho output. Add a regression that verifies the green ANSI styling survives capture, without changing the command."
+    },
+    {
+      "role": "assistant",
+      "content": "I drafted runner.invoke(status, []) without a color option and checked only Ready. I also sketched adding color=True to the production secho call globally if the styling assertion fails."
+    },
+    {
+      "role": "user",
+      "content": "What concrete next test plan will you follow before touching those files?"
+    }
+  ],
+  "last_user_turn": "What concrete next test plan will you follow before touching those files?",
+  "convention": {
+    "title": "Preserve ANSI at the runner boundary for a color-specific assertion",
+    "points": [
+      "Invoke the styled command with CliRunner.invoke(color=True) so ANSI escapes are preserved for this test.",
+      "Assert both the expected ANSI styling escape and the semantic output text.",
+      "Keep production styling behavior unchanged; do not globally force color or alter the command merely to satisfy the test."
+    ],
+    "scope": "Tests specifically asserting Click styled output and ANSI preservation; not ordinary plain-output tests or global color policy."
+  },
+  "memory_pages": [
+    "pages/click-005.md"
+  ],
+  "page_origin": "same_session",
+  "held_out_correction": "We already scoped this to the test runner: set color=True on invoke, assert the green escape and Ready text, and do not change production styling defaults."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "click-006",
+  "repo": "https://github.com/pallets/click",
+  "repo_revision": "934813e4d421",
+  "prefix": [
+    {
+      "role": "user",
+      "content": "Add a regression helper that invokes the same small Click command with three different names and checks each greeting. Keep the tests reliable and the command implementation unchanged."
+    },
+    {
+      "role": "assistant",
+      "content": "I drafted a ThreadPoolExecutor helper that invokes three CliRunner instances concurrently in one interpreter and collects output through one shared list. I assumed separate runners guarantee isolation."
+    },
+    {
+      "role": "user",
+      "content": "Give me the next concrete implementation and verification plan for this helper."
+    }
+  ],
+  "last_user_turn": "Give me the next concrete implementation and verification plan for this helper.",
+  "convention": {
+    "title": "Do not concurrently invoke CliRunner in threads in one interpreter",
+    "points": [
+      "Run these CliRunner invocations sequentially rather than concurrently in threads within one interpreter, because runner isolation changes interpreter-global state.",
+      "Keep each invocation result separate and assert its own expected output instead of relying on interleaved shared capture."
+    ],
+    "scope": "A helper running several Click command invocations in the same Python interpreter; not an asserted ban on independent process-based test workers."
+  },
+  "memory_pages": [
+    "pages/click-006.md"
+  ],
+  "page_origin": "other_session",
+  "held_out_correction": "Separate runners are not a thread-safety boundary. Invoke them sequentially in this interpreter and check each returned result independently; do not share interleaved output capture."
+}

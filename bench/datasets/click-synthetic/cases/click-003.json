@@ -1,0 +1,34 @@
+{
+  "id": "click-003",
+  "repo": "https://github.com/pallets/click",
+  "repo_revision": "934813e4d421",
+  "prefix": [
+    {
+      "role": "user",
+      "content": "Test a Click cli group with a --debug flag and a sync subcommand. The group prints Debug mode is on when enabled; sync prints Syncing. The regression should cover debug setup reaching the subcommand."
+    },
+    {
+      "role": "assistant",
+      "content": "I drafted a direct sync.callback() call and planned to assert only Syncing. That avoids constructing the parent group and its debug context."
+    },
+    {
+      "role": "user",
+      "content": "Give me your next concrete test plan before changing the draft."
+    }
+  ],
+  "last_user_turn": "Give me your next concrete test plan before changing the draft.",
+  "convention": {
+    "title": "Cover root-group setup when testing a subcommand",
+    "points": [
+      "Invoke the root cli group with CliRunner.invoke and an explicit sync subcommand token, rather than calling sync or sync.callback directly.",
+      "Put the root --debug option before the sync token so the root context handles it.",
+      "Assert successful exit and both the root debug message and subcommand sync message in captured output."
+    ],
+    "scope": "Integration-style tests for a Click group whose --debug root option affects its sync subcommand; not isolated callback unit tests."
+  },
+  "memory_pages": [
+    "pages/click-003.md"
+  ],
+  "page_origin": "other_session",
+  "held_out_correction": "This regression needs the group context, not an isolated callback. Invoke cli with [\"--debug\", \"sync\"] and check successful exit plus both debug and sync output."
+}
