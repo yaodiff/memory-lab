@@ -59,4 +59,5 @@ label aggregation and the distinction between three-way and binary agreement.
 - [x] Two independent, blind, differently prompted judges
 - [x] Strict point-level labels and derived plan labels
 - [x] Per-case reporting and origin-stratified plan/point agreement
-- [ ] Human calibration, model-diversity study, and full evaluation
+- [x] [Complete shipped-case pilot](../next-step-replay/FULL_RUN.md), including an unresolved label disagreement
+- [ ] Human calibration and model-diversity study

@@ -2,8 +2,9 @@
 
 English · [中文](README.zh.md)
 
-> Status: early draft with a runnable Next-step Replay demo. Only a bounded smoke
-> test has run; there are no full benchmark results yet.
+> Status: early draft. The complete six-case Next-step Replay pilot has run with
+> an owner-approved CLI setup. These are small synthetic results, not a validated
+> general benchmark.
 
 **One line**: we evaluate team memory for coding agents by asking *"does the agent still get corrected?"*, not *"can it recall a fact?"*.
 
@@ -60,8 +61,9 @@ docs/              related work, CoALA mapping
 - [ ] Bench: "look back and verify memory" arms on Next-step Replay (planned in essay 02)
 - [ ] Repro: Mem0 vs full context on LoCoMo
 - [ ] Repro: A-MEM link evolution ablation on LoCoMo
-- [x] Bench: [Next-step Replay demo](bench/next-step-replay/README.md) on Click (six synthetic corrections; smoke only)
-- [ ] Bench: full Next-step Replay evaluation with owner-approved models and spending
+- [x] Bench: [Next-step Replay demo](bench/next-step-replay/README.md) on Click (six synthetic corrections)
+- [x] Bench: [complete shipped-case pilot](bench/next-step-replay/FULL_RUN.md) with owner-approved models and spending
+- [ ] Bench: human-calibrated, model-diverse effectiveness evaluation
 
 ## Data policy
 

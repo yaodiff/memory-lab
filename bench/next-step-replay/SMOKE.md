@@ -1,7 +1,8 @@
 # Bounded CLI smoke: 2026-11-15
 
-This checks wiring, not benchmark effectiveness. The full evaluation has **not**
-run. Only the first sorted cases were selected, covering independent
+This historical smoke checks wiring, not benchmark effectiveness. A later
+owner-approved [complete shipped-case pilot](FULL_RUN.md) is now available.
+For this smoke, only the first sorted cases were selected, covering independent
 `other_session` memory and the `same_session` prior-exposure control.
 
 ## Command and environment
@@ -68,6 +69,7 @@ Exit status was successful. This is a text-only CLI demo, so no UI screenshot,
 patch execution, deployment or live-service verification is applicable.
 Codex is only offline-tested, not live-smoked.
 
-The full six-case run would use `6 * 2 * (1 + 2) = 36` CLI invocations, before
-provider-internal retries. The owner must choose models and spending first;
-do not infer a price or general effectiveness from this smoke.
+A full six-case run uses `6 * 2 * (1 + 2) = 36` CLI invocations, before
+provider-internal retries. The later pilot used that owner-approved budget.
+Any expanded run still needs a model/spending decision; do not infer a price
+or general effectiveness from this smoke.
