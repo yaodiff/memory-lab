@@ -15,7 +15,7 @@ Evaluate memory at the moment it should matter: **right before a human correctio
 }
 ```
 - `prefix` stops at the last user message before the correction. Nothing after it is kept.
-- `page_origin` is one of `other_session`, `same_session` or `after_correction`. **Report results separately for each value**: same-session pages leak the answer (see essay 03, planned).
+- `page_origin` is one of `other_session`, `same_session` or `after_correction`. **Report results separately for each value**: same-session pages leak the answer (see [essay 03](../../essays/03-same-session-leakage.en.md)).
 - `last_user_turn` must exactly match the final `prefix` message, whose role is
   `user`. An earlier assistant step must be present. The final user request
   asks for the next plan; it is not the withheld human correction.
