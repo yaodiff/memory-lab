@@ -2,7 +2,7 @@
 
 English · [中文](03-same-session-leakage.md)
 
-> Draft v0. Observations attributed to "us" come from running a team memory system internally. We describe them only in coarse terms, with no raw data or examples. The sample is small, and the setting is team conventions for coding agents. All examples are rewritten or synthetic. Next-step Replay demo numbers aren't in yet; see the "Pending" section at the end.
+> Draft v0. Observations attributed to "us" come from running a team memory system internally. We describe them only in coarse terms, with no raw data or examples. The sample is small, and the setting is team conventions for coding agents. All examples are rewritten or synthetic. The Next-step Replay results at the end come from the complete public synthetic pilot: they are descriptive, not evidence of memory effectiveness.
 
 ## In one paragraph
 
@@ -120,7 +120,7 @@ The case format and arms are in [bench/next-step-replay](../bench/next-step-repl
 - **Report the origin mix**: how many items fall under each origin, and how many untraceable pages were treated as `after_correction`.
 - **Split the funnel and judge agreement by origin too.** Leakage doesn't just lift the final violation rate. It also lifts the "found the right page" step, since the session's own wording naturally resembles the agent's query at that moment. [inference]
 
-The table will look like this (numbers pending):
+Full reporting template (the demo below covers only some of these cells):
 
 | Arm \ page origin | `other_session` | `same_session` | `after_correction` |
 |---|---|---|---|
@@ -131,11 +131,24 @@ The table will look like this (numbers pending):
 
 In principle `no_memory` doesn't depend on pages at all. If it varies a lot across the three columns, the item groups differ in difficulty, and comparisons should be paired by item rather than made column against column.
 
-## Pending: eval demo results
+## Eval demo results
 
-This section is empty for now. A separate track is building the Next-step Replay demo on an open-source repository (5–10 synthetic corrections; see the roadmap in the README), including the planted-leak controls described above. When the numbers are in they go here, with each cell's n, agreement between the two judges, the gaps between the three columns, and a plain "no difference" if that is what we see.
+The [complete Next-step Replay pilot](../bench/next-step-replay/FULL_RUN.md) on 2026-11-15 covered all six synthetic Click cases, running only `no_memory` and `oracle_page`. These are plan-level ratios split by `page_origin`; origins are never pooled, nor are these results combined with the earlier smoke.
 
-Until then, the only empirical evidence in this essay is the coarse observation from essay 01: pooled, the gain looks clear; on clean cases alone, it is close to zero. The sample is small and the setting narrow, so don't read it as a general claim.
+Each label rate is that judge's plans with the label divided by all plans in the same origin and arm. `full` means fully compliant, `partial` means partially compliant, and `violates` means a violation; each cell's n is the number of plans judged. Agreement uses paired judgments in that same origin and arm as its denominator. Three-way agreement compares the original labels; binary agreement compares only violates versus not. Neither is accuracy.
+
+| `page_origin` | Arm | Judge A: full / partial / violates | Judge B: full / partial / violates | Plan agreement: three-way / binary |
+|---|---|---|---|---|
+| `other_session` | `no_memory` | 50.0% / 25.0% / 25.0% (n=4) | 50.0% / 25.0% / 25.0% (n=4) | 100.0% / 100.0% (n=4) |
+| `other_session` | `oracle_page` | 75.0% / 25.0% / 0.0% (n=4) | 100.0% / 0.0% / 0.0% (n=4) | 75.0% / 100.0% (n=4) |
+| `same_session` | `no_memory` | 100.0% / 0.0% / 0.0% (n=2) | 100.0% / 0.0% / 0.0% (n=2) | 100.0% / 100.0% (n=2) |
+| `same_session` | `oracle_page` | 100.0% / 0.0% / 0.0% (n=2) | 100.0% / 0.0% / 0.0% (n=2) | 100.0% / 100.0% (n=2) |
+
+Within `other_session`, both judges' violates rates went from 25.0% for `no_memory` to 0.0% for `oracle_page`, but **the oracle plans were not unanimously judged full**. The disagreement concerns an optional verification step: after explicitly using `terminal_width=48`, the plan also suggested checking with a different `COLUMNS` value. Judge A found that environment mutation ambiguous under the rule's scope and assigned `partial`; judge B treated it as an independence diagnostic, not a test dependency, and assigned `full`. Both original verdicts are retained, with no adjudication, rubric change, or selective rerun.
+
+**Both `same_session` arms were fully compliant for both judges, but the rule reminder was already in both prefixes.** The no-memory arm was therefore already at the ceiling; saturation is not an incremental memory benefit. Pooling these controls would lift judge A's memory-arm full-plan rate; judge B's is already at the ceiling in `other_session`. This illustrates why the essay requires origin-stratified reporting, not that cross-session memory works.
+
+**Limits: six hand-written synthetic cases, one model, descriptive results only.** The planner and both judges used `claude-haiku-5-5`; separate blind calls with different prompts do not provide model diversity, and there is no independent human calibration. Only plans were scored; no patch was executed. Supplying a complete page proves delivery, not reading, and retrieval and real task completion were not measured. `after_correction`, `memory_search`, and `step_conditioned` were not run. These ratios are not a causal estimate or **evidence of memory effectiveness**. The [full report](../bench/next-step-replay/FULL_RUN.md) records the setup, original labels, and limitations.
 
 ## Summary
 

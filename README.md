@@ -56,7 +56,7 @@ docs/              related work, CoALA mapping
 
 - [x] Essay 01: the three gates (draft)
 - [x] Essay 02: reading Anthropic's components of agent memory against our field data (draft)
-- [x] Essay 03: same-session leakage inflates memory evals (draft; demo numbers pending)
+- [x] Essay 03: same-session leakage inflates memory evals (draft; [descriptive demo results](essays/03-same-session-leakage.en.md#eval-demo-results) added)
 - [ ] Essay 04: step-conditioned retrieval
 - [ ] Bench: "look back and verify memory" arms on Next-step Replay (planned in essay 02)
 - [ ] Repro: Mem0 vs full context on LoCoMo
