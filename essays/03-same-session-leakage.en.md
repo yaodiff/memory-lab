@@ -133,7 +133,7 @@ In principle `no_memory` doesn't depend on pages at all. If it varies a lot acro
 
 ## Eval demo results
 
-The [complete Next-step Replay pilot](../bench/next-step-replay/FULL_RUN.md) on 2026-11-15 covered all six synthetic Click cases, running only `no_memory` and `oracle_page`. These are plan-level ratios split by `page_origin`; origins are never pooled, nor are these results combined with the earlier smoke.
+The [E002 complete Next-step Replay pilot](../experiments/E002-next-step-replay-full/README.md) on 2026-11-15 covered all six synthetic Click cases, running only `no_memory` and `oracle_page`. These are plan-level ratios split by `page_origin`; origins are never pooled, nor are these results combined with the earlier [E001 bounded smoke](../experiments/E001-next-step-replay-smoke/README.md).
 
 Each label rate is that judge's plans with the label divided by all plans in the same origin and arm. `full` means fully compliant, `partial` means partially compliant, and `violates` means a violation; each cell's n is the number of plans judged. Agreement uses paired judgments in that same origin and arm as its denominator. Three-way agreement compares the original labels; binary agreement compares only violates versus not. Neither is accuracy.
 
@@ -148,7 +148,7 @@ Within `other_session`, both judges' violates rates went from 25.0% for `no_memo
 
 **Both `same_session` arms were fully compliant for both judges, but the rule reminder was already in both prefixes.** The no-memory arm was therefore already at the ceiling; saturation is not an incremental memory benefit. Pooling these controls would lift judge A's memory-arm full-plan rate; judge B's is already at the ceiling in `other_session`. This illustrates why the essay requires origin-stratified reporting, not that cross-session memory works.
 
-**Limits: six hand-written synthetic cases, one model, descriptive results only.** The planner and both judges used `claude-haiku-5-5`; separate blind calls with different prompts do not provide model diversity, and there is no independent human calibration. Only plans were scored; no patch was executed. Supplying a complete page proves delivery, not reading, and retrieval and real task completion were not measured. `after_correction`, `memory_search`, and `step_conditioned` were not run. These ratios are not a causal estimate or **evidence of memory effectiveness**. The [full report](../bench/next-step-replay/FULL_RUN.md) records the setup, original labels, and limitations.
+**Limits: six hand-written synthetic cases, one model, descriptive results only.** The planner and both judges used `claude-haiku-5-5`; separate blind calls with different prompts do not provide model diversity, and there is no independent human calibration. Only plans were scored; no patch was executed. Supplying a complete page proves delivery, not reading, and retrieval and real task completion were not measured. `after_correction`, `memory_search`, and `step_conditioned` were not run. These ratios are not a causal estimate or **evidence of memory effectiveness**. The [E002 full report](../experiments/E002-next-step-replay-full/README.md) records the setup, original labels, and limitations.
 
 ## Summary
 

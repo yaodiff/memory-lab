@@ -40,6 +40,8 @@ Each essay is written in Chinese first, with an English version covering the sam
 
 ## Layout
 
+Browse the indexes for [plans](plans/README.md), [experiments](experiments/README.md), [lessons](lessons/README.md), [public handoffs](handoff/README.md), and [archived records](archive/README.md).
+
 ```
 essays/            field notes: NN-slug.md (zh) + NN-slug.en.md (en)
 bench/
@@ -61,8 +63,8 @@ docs/              related work, CoALA mapping
 - [ ] Bench: "look back and verify memory" arms on Next-step Replay (planned in essay 02)
 - [ ] Repro: Mem0 vs full context on LoCoMo
 - [ ] Repro: A-MEM link evolution ablation on LoCoMo
-- [x] Bench: [Next-step Replay demo](bench/next-step-replay/README.md) on Click (six synthetic corrections)
-- [x] Bench: [complete shipped-case pilot](bench/next-step-replay/FULL_RUN.md) with owner-approved models and spending
+- [x] Bench: [Next-step Replay demo](bench/next-step-replay/README.md) on Click (six synthetic corrections), with [E001 bounded smoke evidence](experiments/E001-next-step-replay-smoke/README.md)
+- [x] Bench: [E002 complete shipped-case pilot](experiments/E002-next-step-replay-full/README.md) with owner-approved models and spending
 - [ ] Bench: human-calibrated, model-diverse effectiveness evaluation
 
 ## Data policy

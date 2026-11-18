@@ -39,6 +39,8 @@
 
 ## 目录
 
+查看[方案](plans/README.md)、[实验](experiments/README.md)、[经验](lessons/README.md)、[公开交接](handoff/README.md)和[归档](archive/README.md)的索引。
+
 ```
 essays/            一线笔记：NN-slug.md（中文）+ NN-slug.en.md（英文）
 bench/
@@ -59,8 +61,8 @@ docs/              相关工作、CoALA 对照
 - [ ] 评测：在 Next-step Replay 上加「回看记录、核对记忆」对照组（计划见第 02 篇）
 - [ ] 复现：Mem0 与全上下文在 LoCoMo 上的对比
 - [ ] 复现：A-MEM 链接演化在 LoCoMo 上的消融
-- [x] 评测：[Next-step Replay demo](bench/next-step-replay/README.md)（Click 上六个合成纠正）
-- [x] 评测：[全部六个 case 的完整试跑](bench/next-step-replay/FULL_RUN.md)（模型和花费已经仓库主人确认）
+- [x] 评测：[Next-step Replay demo](bench/next-step-replay/README.md)（Click 上六个合成纠正），附 [E001 冒烟测试](experiments/E001-next-step-replay-smoke/README.md)
+- [x] 评测：[E002 全部六个 case 的完整试跑](experiments/E002-next-step-replay-full/README.md)（模型和花费已经仓库主人确认）
 - [ ] 评测：人工校准、不同模型下的有效性验证
 
 ## 数据政策

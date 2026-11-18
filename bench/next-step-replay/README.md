@@ -60,9 +60,9 @@ The real smoke uses existing first-party Claude CLI login. Model aliases and
 availability depend on the logged-in account.
 
 Recorded commands, resolved models and ratio-only metrics:
-[bounded smoke evidence](SMOKE.md) and the
-[complete shipped-case pilot](FULL_RUN.md). The latter covers all six demo cases,
-not a representative or human-calibrated benchmark.
+[E001 bounded smoke](../../experiments/E001-next-step-replay-smoke/README.md) and the
+[E002 complete shipped-case pilot](../../experiments/E002-next-step-replay-full/README.md).
+The latter covers all six demo cases, not a representative or human-calibrated benchmark.
 
 From the repository root, run the bounded smoke:
 
@@ -136,7 +136,8 @@ length; this demo does not estimate a price or promise free quota.
 More than two cases requires both `--allow-full-run` and explicit
 `--planner-model`, `--judge-a-model`, `--judge-b-model`. That flag is an operator
 acknowledgment, not a substitute for owner approval. An owner-approved complete
-run with the smoke configuration is recorded in [FULL_RUN.md](FULL_RUN.md).
+run with the smoke configuration is recorded in
+[E002](../../experiments/E002-next-step-replay-full/README.md).
 Expanded runs still require a new model/spending decision.
 
 ## Status
