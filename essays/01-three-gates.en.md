@@ -2,7 +2,7 @@
 
 English · [中文](01-three-gates.md)
 
-> Draft v0. Figures marked **[number pending review]** come from internal practice. Before they are published they will either be cleared or replaced with numbers from the open reproductions in this repository.
+> These observations come from a small internal sample of team conventions for coding agents.
 
 ## In one line
 
@@ -36,7 +36,7 @@ Reconcile every correction worth remembering against memory, and sort it into on
 | Never learned, or learned only in part | The correction happened; memory has nothing, or an incomplete version | Written right |
 | Learned afterwards | Written into memory after the correction | Expected; check next time whether it took effect |
 
-This table can be produced automatically every night, far more cheaply than any manual labelling. One caution: **the reconciliation verdicts themselves are noisy.** Rejudge a batch of "never learned" corrections with a different model and a good share of them flip **[number pending review]**. Use at least two independent judges, report their agreement, and read every disagreement.
+This table can be produced automatically every night, far more cheaply than any manual labelling. **A different model can reclassify some corrections originally marked "never learned".** Use at least two independent judges, report their agreement, and review every disagreement.
 
 ## Gate 1: written right
 
@@ -55,7 +55,7 @@ This is where we spent the most time, and where we were most surprised.
 
 The short version: **ranking is mostly fine; the problem is what the agent asks for.**
 
-- Using the summary of a correction directly as the query puts the right page in the top 3 most of the time **[number pending review]**. So when the query is right, ranking is good enough.
+- Using a correction summary as the query usually puts the relevant page near the top. When the query is right, ranking is good enough.
 - But the queries the agent actually sends describe **the task in hand** (say, "commit this branch's changes and push them"), while the convention describes **how to do this kind of step** ("which checks to run before committing"). The two aren't talking about the same thing.
 - Rewriting the query on the server (extract the action phrase, rephrase as "how does the team do this step") rescued none of them, because that meaning simply isn't in the agent's query.
 - Rewording the Skill, compressing results, adding an index: on a replay of "the moment just before the correction", almost nothing changed item by item. Items that were found stayed found whatever we changed; items that were missed stayed missed.
@@ -64,15 +64,15 @@ The direction we want to try is **step-conditioned retrieval**: when searching, 
 
 ## Gate 3: used
 
-Even after reading the whole page, the agent may not follow it. In our sample, "read in full but not fully followed" is the biggest bucket **[number pending review]**: the page clearly states the point that was missed, yet the agent adds a design of its own or skips a detail.
+Reading the whole page and following only part of it was the most common failure in this small sample. The page spells out the requirement, yet the agent adds a design of its own or skips a detail.
 
 So instrument it in layers, at least these: **did it search → did it find the right page → did it read it in full → did it follow it.** A single "adoption rate" won't tell you what to fix.
 
 ## The biggest pitfall: same-session leakage
 
-The evaluation works like this: take the step just before a correction in a real session, have the agent produce a plan with memory and without it, then judge whether the plan violates the convention. Overall, the violation rate drops clearly with memory **[number pending review]**.
+For the evaluation, take the step just before a correction in a real session, have the agent produce a plan with memory and without it, then judge whether the plan violates the convention. Across this small sample, violations were less frequent when memory was available.
 
-Only when we went through the cases one by one did we notice: in many of them **[number pending review]**, the page involved **had been learned from that very session**, sometimes updated only after the correction. The memory arm had effectively seen the answer in advance. On the clean cases, where the page came from another session and wasn't updated after the correction, **the gain was close to zero**.
+Checking the origin of each page showed that many pages **had been learned from the same session** and some were updated after the correction. The memory arm had effectively seen the answer in advance. Looking only at cases where the page came from another session and had no updates after the correction, **we saw almost no gain**.
 
 This deserves its own essay ([essay 03](03-same-session-leakage.en.md)). The conclusion is simple: **when evaluating team memory, split out same-session cases by page origin**, or the gain will be badly overstated.
 

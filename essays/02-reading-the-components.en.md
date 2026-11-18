@@ -15,7 +15,7 @@ On 2026-11-06 Anthropic published [The components of agent memory](https://www.a
 ## What kind of comparison this is
 
 - **Different settings.** Their experiments are database Q&A on CL-Bench, playing Pokémon, and answering questions or drafting legal briefs over document collections: one agent, with a ground truth to check against. Ours are coding agents on multi-person teams, where the supervision signal is a human correction and there is no answer key.
-- **Neither sample is large.** Some of their experiments use 25 or 24 questions. Ours are smaller: a few dozen items, two passes per arm.
+- **Neither sample is large.** Some of their experiments use 25 or 24 questions. Our small internal sample had a few dozen items, and we repeated each arm.
 - So what follows is "where the directions agree" and "where they don't". It is not a reproduction, and it is not a verdict on who is right.
 
 ## Gate 1: written right ↔ "memory is a prediction"
@@ -29,14 +29,14 @@ On 2026-11-06 Anthropic published [The components of agent memory](https://www.a
 **Where we agree**
 
 - Essay 01's rule "don't store facts you can read straight from the code" is the same idea as "don't store what's on the screen": a stored copy goes stale and then contradicts the real state.
-- **Rewording prescriptive instructions is not the lever.** On Next-step Replay (cut a real session right before a correction and replay it) we compared several versions of the memory-usage Skill: key points at the top of each page, compressed results, an added index. On 49 real items with two passes per arm, the best variant beat the baseline on one item, lost on one, and tied on the rest. The baseline gave identical results on both of its passes.
+- **Rewording prescriptive instructions is not the lever.** On Next-step Replay (cut a real session right before a correction and replay it) we compared several versions of the memory-usage Skill, including adding key points at the top of each page, compressing results, and adding an index. In a small internal sample of about fifty real items, the best variant differed from the baseline on fewer than one in ten items, with both gains and losses. Repeating the baseline gave the same results.
 
 **Where we don't, and what to keep in mind**
 
 - Their instructions are about *how to write* memory. Ours were mostly about *how to use* it: when to search, how to phrase the query, how results are shown. Both point to "prescriptive instructions aren't the lever", but they target different things, so neither counts as evidence for the other.
 - They saw fixed rules *hurt*. We saw *no difference*. Our reading is not that the model already judges well on its own. The bottleneck is just somewhere else (see gate 2).
 - Teams add a problem their setup doesn't have: the session that writes a memory is not the one that uses it, and often belongs to a different person. "Predicting future use" here also means predicting *who* will need it, and *at which step*. That makes **scope** ("first phase only", "unreleased versions") worth more than the conclusion itself. Essay 01's checker that deleted scope as a detail, leaving the rule broader than intended, is this failure.
-- A sizable share of those 49 items were misaligned: the correction and the last user message before it were about different things. After cleaning, only about half passed both checks. So "no difference" means "no measurable difference on this set", and no more.
+- A sizable share of the items in this small sample were misaligned. The correction and the last user message before it were about different things. After cleaning, only about half passed both checks. So "no difference" means "no measurable difference on this set", and no more.
 
 ## Gate 2: found ↔ "keep the injected layer small" and "wiki + search"
 
@@ -49,7 +49,7 @@ On 2026-11-06 Anthropic published [The components of agent memory](https://www.a
 
 - By default we inject **nothing**. A usage Skill plus a set of search tools, and the agent decides when to search. In their terms, our top layer is close to empty and everything rides on retrieval.
 - **When the query is right, ranking is good enough.** Using the summary of a correction as the query puts the right page in the top 3 most of the time.
-- **Misses come from query mismatch.** At the decision point the agent searches for the task in hand ("commit this branch and push it"), while the convention is about how to do a kind of step ("which checks to run before committing"). Among those 49 items, one group was found by every arm on every pass and another group was missed by every arm on every pass. Whether the agent's natural query at that moment matched the page decided the outcome, not the Skill wording. Rewriting the query server-side rescued nothing, because the meaning wasn't in the query to begin with.
+- **Misses come from query mismatch.** At the decision point the agent searches for the task in hand ("commit this branch and push it"), while the convention is about how to do a kind of step ("which checks to run before committing"). In this small sample, one group of items was found by every arm on every pass and another group was missed by every arm on every pass. Whether the agent's natural query at that moment matched the page decided the outcome, not the Skill wording. Rewriting the query server-side rescued nothing, because the meaning wasn't in the query to begin with.
 
 **How this connects to their layering**
 
@@ -138,7 +138,7 @@ A plan only. Nothing has been run.
 
 | Gate | Anthropic's post | Our field observations | Do they line up? |
 |---|---|---|---|
-| Written right | Memory is a prediction; say what it's for, don't prescribe how; fixed rules can hurt | Rewording the Skill: within one item on 49; scope matters more than the conclusion | Same direction, different target |
+| Written right | Memory is a prediction; say what it's for, don't prescribe how; fixed rules can hurt | In a small internal sample, the best Skill rewrite matched the baseline on over nine in ten items. Scope matters more than the conclusion | Same direction, different target |
 | Found | Keep the injected layer small; wiki + search 61% vs search alone 53% | The agent searches for its task; conventions are about steps; ranking isn't the bottleneck | Complementary: they offer a map, we lack "knowing this step has a rule" |
 | Used | One sentence: loading doesn't guarantee acting | The leakiest gate: close to four in ten read in full but didn't fully follow; about one in five still violates with the page in front of it | Not developed in the post; the part we most want to add |
 | Consolidation | Check against the source; wikis bloat; many writers lose facts; tune instructions to the goal | Nearly half of crude merges were bad; about six in ten links held up under strict review; most threshold retirements should have been restored | Failure modes line up closely |
