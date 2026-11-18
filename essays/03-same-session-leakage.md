@@ -133,7 +133,7 @@ case 格式和对照组见 [bench/next-step-replay](../bench/next-step-replay/RE
 
 ## 评测 demo 结果
 
-2026-11-15 的 [Next-step Replay 完整试跑](../bench/next-step-replay/FULL_RUN.md)覆盖了 Click 上全部六个合成案例，只运行 `no_memory` 和 `oracle_page`。下面按 `page_origin` 分开报方案级比例，不合并来源，也不和早先的 smoke 合并。
+2026-11-15 的 [E002 Next-step Replay 完整试跑](../experiments/E002-next-step-replay-full/README.md)覆盖了 Click 上全部六个合成案例，只运行 `no_memory` 和 `oracle_page`。下面按 `page_origin` 分开报方案级比例，不合并来源，也不和早先的 [E001 冒烟测试](../experiments/E001-next-step-replay-smoke/README.md)合并。
 
 每个标签的比例 = 该判官给出该标签的方案数 / 同一来源、同一组的全部方案数。`full` 是完全照做，`partial` 是部分遵守，`violates` 是违反；每格的 n 是被判方案数。一致率的分母是同一来源、同一组的成对判决数；三分类比较原标签，二分类只比较「是否违反」，都不是准确率。
 
@@ -148,7 +148,7 @@ case 格式和对照组见 [bench/next-step-replay](../bench/next-step-replay/RE
 
 **`same_session` 两组在两位判官下都是完全照做，但规则提醒早已在两组的 prefix 里。** 因而无记忆组也已经满分，不能把饱和表现当作记忆带来的新增收益。把这些控制题混进总分，会抬高判官 A 的「有记忆」完全照做率；判官 B 在 `other_session` 已满分，不会再升。这正是本文要求按来源分开报的原因，而不是跨会话记忆有效的证明。
 
-**局限：只有六个手写合成案例、单一模型，只能作描述。** 规划器和两位判官都使用 `claude-haiku-5-5`；两次盲评的提示词不同，不等于不同模型，也没有独立的人类校准。试跑只评方案，没有执行补丁；提供完整页只能证明送达，不能证明读过，更未测检索或真实任务完成。`after_correction`、`memory_search` 和 `step_conditioned` 未运行。上述比例不是因果估计，**不是记忆有效的证据**。完整设置、原始标签和局限见[完整报告](../bench/next-step-replay/FULL_RUN.md)。
+**局限：只有六个手写合成案例、单一模型，只能作描述。** 规划器和两位判官都使用 `claude-haiku-5-5`；两次盲评的提示词不同，不等于不同模型，也没有独立的人类校准。试跑只评方案，没有执行补丁；提供完整页只能证明送达，不能证明读过，更未测检索或真实任务完成。`after_correction`、`memory_search` 和 `step_conditioned` 未运行。上述比例不是因果估计，**不是记忆有效的证据**。完整设置、原始标签和局限见 [E002 完整报告](../experiments/E002-next-step-replay-full/README.md)。
 
 ## 小结
 

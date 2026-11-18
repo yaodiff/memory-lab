@@ -1,0 +1,18 @@
+{
+  "dataset": "bench/datasets/click-synthetic",
+  "case_count": 2,
+  "arms": ["no_memory", "oracle_page"],
+  "cli": "Claude Code",
+  "cli_version": "2.1.325",
+  "resolved_model": "claude-haiku-5-5",
+  "command": [
+    "bench/next-step-replay/run.sh",
+    "--cases", "2",
+    "--planner-backend", "claude",
+    "--planner-model", "haiku",
+    "--judge-a-model", "haiku",
+    "--judge-b-model", "haiku",
+    "--out", "bench/next-step-replay/runs/smoke",
+    "--timeout", "180"
+  ]
+}
