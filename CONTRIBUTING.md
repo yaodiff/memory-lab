@@ -29,6 +29,8 @@ Optional: `git config core.hooksPath scripts/hooks` scans the whole tree with yo
 
 ## Writing rules
 
+Read the [Super rules](SUPER_RULES.md) before contributing.
+
 - **Bilingual pairs change together**: `essays/NN-slug.md` (Chinese, written first) with `essays/NN-slug.en.md` (idiomatic English, not word for word); `README.md` with `README.zh.md`.
 - **Internal findings only as ratios or coarse terms** ("about six in ten", "roughly fifty items"), labelled as small samples from our setting. No raw data, examples, internal names, people or links. Examples are rewritten or synthetic.
 - **Negative results are reported as they are.**
