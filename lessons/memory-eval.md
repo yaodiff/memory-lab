@@ -1,6 +1,6 @@
 # 教训：记忆评测的度量、对照与口径
 
-来源：一个内部场景里约两周的小样本经验，只留不依赖内部背景的通用结论。关联 [plan](../plans/plan-team-memory-quality.md)、[essay 03](../essays/03-same-session-leakage.md) 与 #17。条目格式：现象、原因、做法。
+来源：一个内部场景里约两周的小样本经验，只留不依赖内部背景的通用结论。关联 [plan](../plans/team-memory-quality/README.md)、[essay 03](../essays/03-same-session-leakage.md) 与 #17。条目格式：现象、原因、做法。
 
 ## 题和数据
 
