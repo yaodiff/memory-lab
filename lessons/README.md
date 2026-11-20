@@ -2,6 +2,7 @@
 
 | 改动范围 | 先读 |
 | --- | --- |
+| 新开一轮记忆系统迭代 | [迭代规范](iteration-process.md) |
 | 重放 runner、实验组与运行边界 | [Next-step Replay](../bench/next-step-replay/README.md) |
 | 判官提示、标签与一致率 | [判官约定](../bench/judges/README.md) |
 | 公开数据边界与脱敏 | [贡献指南的写作规则](../CONTRIBUTING.md#writing-rules) |
