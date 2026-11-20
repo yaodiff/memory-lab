@@ -10,3 +10,5 @@
 | 团队记忆的写入、整理与批量改写 | [记忆整理](memory-curation.md) |
 | 记忆评测的度量、对照与口径 | [记忆评测](memory-eval.md) |
 | 记忆后台管线的状态、领取与旧副本停写 | [记忆管线运维](memory-ops.md) |
+| 什么时候查记忆、拿什么去查 | [检索复盘](memory-retrieval-traces.md) |
+| 平台操作的手册与记忆检索顺序 | [手册优先](manual-before-memory.md) |
