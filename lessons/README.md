@@ -8,3 +8,4 @@
 | 合成案例和数据集 | [数据集说明](../bench/datasets/README.md) |
 | 团队记忆的写入、整理与批量改写 | [记忆整理](memory-curation.md) |
 | 记忆评测的度量、对照与口径 | [记忆评测](memory-eval.md) |
+| 记忆后台管线的状态、领取与旧副本停写 | [记忆管线运维](memory-ops.md) |
