@@ -12,3 +12,4 @@
 | E006 | [孤立实体判定：小模型只看页首不对代码，以及代码引用当候选过滤器](E006-orphan-entity-check/README.md) | Does not work | 2026-11-20 | 无 |
 | E007 | [与平台官方手册重复的记忆：取代 + 精简，并从整理侧拦住新增重复](E007-manual-overlap-dedup/README.md) | Inconclusive | 2026-11-20 | 无 |
 | E008 | [去掉文档召回腿：延迟大幅下降、正确页未丢，但错页改善有限](E008-drop-doc-leg/README.md) | Inconclusive | 2026-11-20 | 无 |
+| E009 | [召回时沿实体关系扩一层：多页题一题没多找齐，扩不到主要因为结果里没有可扩的实体](E009-typed-relation-expansion/README.md) | Does not work | 2026-11-20 | 无 |

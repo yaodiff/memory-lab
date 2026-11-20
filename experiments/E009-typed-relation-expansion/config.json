@@ -1,0 +1,13 @@
+{
+  "experiment": "E009",
+  "recall": {"mode": "default merged", "limit": 10, "requests_per_query": 1, "test_traffic": true},
+  "seeds": {"from_top": 5, "page_type": "entity", "exclude_weak": true},
+  "relations": ["part-of", "contains", "implements", "implemented-by", "depends-on", "depended-on-by"],
+  "arm_B": {"append_max": 5, "order": ["seed rank", "part-of", "contains", "implements/implemented-by", "depends-on/depended-on-by"]},
+  "arm_C": {"neighbour_weight": {"part-of": 0.95, "implements": 0.90, "implemented-by": 0.90, "contains": 0.85, "depends-on": 0.80, "depended-on-by": 0.80},
+            "in_list_bonus_per_link": 0.03, "in_list_bonus_cap": 0.06, "cut": 10},
+  "diagnostic_U": {"untyped_links_and_backlinks": true, "append_max": 5},
+  "diagnostic_plus": {"infer_part_of_from_code_references": true},
+  "module_key": "first two directories under the repository root",
+  "model_judge": "none"
+}
