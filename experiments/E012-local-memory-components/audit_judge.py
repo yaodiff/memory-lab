@@ -16,7 +16,8 @@ import run as e010
 UNKNOWN_RESPONSE = re.compile(r'^["\'\x60]*unknown\b(?=["\'\x60]*\s*(?:[.!;:\n]|$))')
 REFUSAL = re.compile(
     r"^(?:i (?:do not|don't) know\b|"
-    r"i (?:cannot|can not|can't|am unable to|won't|will not) "
+    r"(?:i (?:cannot|can not|can't|am unable to|am not able to|won't|will not)|"
+    r"i'm (?:unable to|not able to)) "
     r"(?:know|answer|determine|tell|say|find|verify|provide|confirm)\b|"
     r"(?:(?:there (?:is|was) |i have )?(?:insufficient|not enough|no)|"
     r"i (?:do not|don't) have enough) "
@@ -26,6 +27,7 @@ REFUSAL = re.compile(
     r"it is (?:not possible|impossible) to (?:answer|determine|say|confirm)\b)"
 )
 EVIDENCE_PREFIX = re.compile(r"^(?:based on|from|given) [^,\n]{1,160},\s*")
+ANSWER_PREFIX = re.compile(r"^(?:answer|response)\s*:\s*")
 
 PRIMARY_RUBRIC = (
     "You are grading a knowledge-update answer. PASS only if the candidate gives the reference "
@@ -48,10 +50,10 @@ def is_abstention(answer):
     text = answer.casefold().replace("’", "'").lstrip()
     text = re.sub(r"^(?:\*\*|__|\s)+", "", text)
     text = text.replace("**", "").replace("__", "")
-    if UNKNOWN_RESPONSE.match(text):
-        return True
     text = re.sub(r"^(?:sorry|i am sorry|i'm sorry)[,.]\s*", "", text)
-    return REFUSAL.match(EVIDENCE_PREFIX.sub("", text, count=1)) is not None
+    text = ANSWER_PREFIX.sub("", text, count=1)
+    text = EVIDENCE_PREFIX.sub("", text, count=1)
+    return bool(UNKNOWN_RESPONSE.match(text) or REFUSAL.match(text))
 
 
 def model_grade(port, question, reference, candidate, reviewer=False):
