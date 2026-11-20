@@ -1,0 +1,11 @@
+{
+  "arms": ["historical_results", "current_results", "no_memory"],
+  "replay": "independent_text_only",
+  "retrieval": "freeze_one_read_only_result_per_case",
+  "scoring": {
+    "blind": true,
+    "same_underlying_model": true,
+    "criteria": ["relevant_adoption", "wrong_result_influence", "next_action_direction"]
+  },
+  "public_output": "aggregate_ratios_only"
+}
