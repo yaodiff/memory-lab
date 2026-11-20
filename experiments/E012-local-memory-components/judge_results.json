@@ -1,0 +1,180 @@
+{
+  "primary_model": "Qwen2.5-1.5B-Instruct Q4_K_M",
+  "reviewer_model": "IBM Granite 4.0 Micro Q4_K_M",
+  "reviewer_revision": "55cded3dcb8a",
+  "llama_cpp_release": "b12560",
+  "archived_abstention": {
+    "total": 160,
+    "correct": 143,
+    "literal_unknown": 143,
+    "changed_vs_primary": 32,
+    "changed_vs_alternate": 88
+  },
+  "knowledge_update_audit": {
+    "matched": 19,
+    "total": 20,
+    "labels": [
+      {
+        "id": "830ce83f",
+        "arm": "no_memory",
+        "seed": 101,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "c4ea545c",
+        "arm": "no_memory",
+        "seed": 202,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "c6853660",
+        "arm": "summary",
+        "seed": 101,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "89941a94",
+        "arm": "summary",
+        "seed": 202,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "4b24c848",
+        "arm": "bm25",
+        "seed": 101,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "affe2881",
+        "arm": "bm25",
+        "seed": 202,
+        "primary": false,
+        "reviewer": true,
+        "explicit_refusal": false
+      },
+      {
+        "id": "603deb26",
+        "arm": "fact_pages",
+        "seed": 101,
+        "primary": true,
+        "reviewer": true,
+        "explicit_refusal": false
+      },
+      {
+        "id": "22d2cb42",
+        "arm": "fact_pages",
+        "seed": 202,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "eace081b",
+        "arm": "no_memory",
+        "seed": 101,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "1cea1afa",
+        "arm": "no_memory",
+        "seed": 202,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "50635ada",
+        "arm": "summary",
+        "seed": 101,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "01493427",
+        "arm": "summary",
+        "seed": 202,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "6a27ffc2",
+        "arm": "bm25",
+        "seed": 101,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "dfde3500",
+        "arm": "bm25",
+        "seed": 202,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "e61a7584",
+        "arm": "fact_pages",
+        "seed": 101,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "08e075c7",
+        "arm": "fact_pages",
+        "seed": 202,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "c7dc5443",
+        "arm": "no_memory",
+        "seed": 101,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "89941a93",
+        "arm": "no_memory",
+        "seed": 202,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "26bdc477",
+        "arm": "summary",
+        "seed": 101,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      },
+      {
+        "id": "45dc21b6",
+        "arm": "summary",
+        "seed": 202,
+        "primary": false,
+        "reviewer": false,
+        "explicit_refusal": true
+      }
+    ]
+  },
+  "gate_passed": true
+}
