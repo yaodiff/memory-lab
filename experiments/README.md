@@ -15,3 +15,4 @@
 | E009 | [召回时沿实体关系扩一层：多页题一题没多找齐，扩不到主要因为结果里没有可扩的实体](E009-typed-relation-expansion/README.md) | Does not work | 2026-11-20 | 无 |
 | E010 | [Supersession and abstention on LongMemEval](E010-longmemeval-supersession/README.md) | Inconclusive | 2026-11-20 | 无 |
 | E011 | [Next-step replay with historical and current memory](E011-next-step-memory-replay/README.md) | Inconclusive | 2026-11-20 | 无 |
+| E012 | [Local memory retrieval on LongMemEval](E012-local-memory-components/README.md) | Inconclusive | 2026-11-20 | 无 |
