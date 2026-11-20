@@ -2,7 +2,7 @@
 
 - Conclusion: Inconclusive
 - Date: 2026-11-20
-- Issue: [#58, preregistration](https://github.com/yaodiff/memory-lab/issues/58)
+- Issue / PR: [#58, preregistration](https://github.com/yaodiff/memory-lab/issues/58) / [#61](https://github.com/yaodiff/memory-lab/pull/61)
 - Source: [LongMemEval, ICLR 2025](https://arxiv.org/abs/2410.10813)
 - Handoff: none
 
