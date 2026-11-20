@@ -10,7 +10,7 @@ English · [中文](plan-context-anchored-recall.md)
 
 [E009](../experiments/E009-typed-relation-expansion/README.md) picked entity seeds from the top five global results and followed typed relations one hop. Its conclusion was **Does not work**. In a small internal sample, about 48% of missed gold entity pages had no eligible seed and about 36% had a seed with no connection to the gold page. Complete multi-page recall stayed flat. Reranking put wrong pages in the top three for more cases.
 
-In a separate small internal backfill trial, about one in ten pages needing attachments got a candidate. A self-check judged about three quarters of proposed attachments correct, below that trial's bar. No links were written.
+In small internal sample reviews, roughly three quarters to four fifths of the model's proposed attachments were judged correct. Mechanical matching on code symbols yielded almost no correct attachments. These observations concern attachment quality. Recall effectiveness still needs a controlled comparison.
 
 ## Goal and scope
 
@@ -21,6 +21,14 @@ Test whether a separate panel helps readers find all the memory pages they need 
 1. Identify entity anchors from context available before search: the active repository, files being changed, and systems named in the task brief.
 2. Collect the lessons, decisions, and conventions directly attached to those entities, deduplicate them, and rank them by semantic relevance to the question. Cap the panel at three pages and leave it empty when there is no suitable anchor or attached page.
 3. Put the panel beside global search. E009 depended on search finding an entity first and tried promoting its neighbors into the global results. A separate panel lets us measure both additional recall and wrong pages under a fixed reading budget.
+
+### AOCI-CODE reference
+
+The [AOCI-CODE reading note](../essays/05-aoci-code.en.md) explains the inspiration for this plan. It covers upstream commit [`5f68ace`](https://github.com/aoci-spec/aoci-code/commit/5f68ace), licensed under [FSL-1.1-MIT](https://github.com/aoci-spec/aoci-code/blob/5f68ace/LICENSE).
+
+- **Object identity.** Identify entities by repository and by path or symbol within it so that objects with the same name in different repositories or modules stay distinct. See the [object contract](https://github.com/aoci-spec/aoci-code/blob/5f68ace/spec/public/aoci-object-fras-v2.txt).
+- **Verifiable evidence.** Keep revision-specific source references on attachments so reviewers can inspect the cited evidence. Reviewers still need to check that the page's topic and scope fit the entity. See the [System Cognition contract](https://github.com/aoci-spec/aoci-code/blob/5f68ace/spec/public/aoci-system-cognition-runtime-v1.txt).
+- **Review on source change.** Adapt the upstream source change detection to mark affected attachments for review when their cited source changes. See the [refresh workflow](https://github.com/aoci-spec/aoci-code/blob/5f68ace/docs/cognition-refresh.md).
 
 ### Draft decision rules to preregister before running
 

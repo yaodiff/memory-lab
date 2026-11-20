@@ -38,6 +38,7 @@ Each essay is written in Chinese first, with an English version covering the sam
 | 02 | [Reading Anthropic's "components of agent memory" against field data from team memory](essays/02-reading-the-components.en.md) | [用团队记忆的一线数据读 Anthropic 的「记忆组件」](essays/02-reading-the-components.md) |
 | 03 | [Your memory eval may be inflated: same-session leakage](essays/03-same-session-leakage.en.md) | [你的记忆评测可能虚高了：同会话泄漏](essays/03-same-session-leakage.md) |
 | 04 | [Reading Meta's Self-Improving Memory: the model rewrites its own memory prompts, then learns them](essays/04-self-improving-memory.en.md) | [读 Meta 的 Self-Improving Memory：让模型改自己的记忆提示，再蒸馏进权重](essays/04-self-improving-memory.md) |
+| 05 | [Finding the right memories from the repository already in view](essays/05-aoci-code.en.md) | [让编码 Agent 从手头的仓库找到相关记忆](essays/05-aoci-code.md) |
 
 ## Layout
 
@@ -61,7 +62,8 @@ docs/              related work, CoALA mapping
 - [x] Essay 02: reading Anthropic's components of agent memory against our field data (draft)
 - [x] Essay 03: same-session leakage inflates memory evals (draft; [descriptive demo results](essays/03-same-session-leakage.en.md#eval-demo-results) added)
 - [x] Essay 04: reading Meta's Self-Improving Memory against team memory (draft; with the synthetic [E004](experiments/E004-meta-optimized-memory-prompts/README.md))
-- [ ] Essay 05: step-conditioned retrieval
+- [x] Essay 05: [reading AOCI-CODE](essays/05-aoci-code.en.md)
+- [ ] Essay: step-conditioned retrieval
 - [ ] Bench: "look back and verify memory" arms on Next-step Replay (planned in essay 02)
 - [ ] Repro: Mem0 vs full context on LoCoMo
 - [ ] Repro: A-MEM link evolution ablation on LoCoMo

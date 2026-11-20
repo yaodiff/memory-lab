@@ -10,7 +10,7 @@
 
 [E009](../experiments/E009-typed-relation-expansion/README.md) 从全局搜索前五条里选实体作起点，沿类型化关系扩一跳，结论为 **Does not work**。在内部小样本中，扩展没够到的实体金标页里，约 48% 没有可用起点，约 36% 有起点但与金标页无联系。多页全中率没变，重排后更多题的前三出现错页。
 
-另一次独立的内部小样本补挂试验里，约一成待挂页找到了候选，自查判断约四分之三的候选挂接正确，低于当次门槛。试验没有写入挂接。
+内部小样本复核中，模型猜出的候选挂接约四分之三到八成正确。只按代码符号做机械匹配的规则几乎没有找出正确挂接。这些观察针对页面挂接，召回效果要另做对照。
 
 ## 目标 / 不做什么
 
@@ -21,6 +21,14 @@
 1. 用搜索前已知的任务信息识别实体，包括当前仓库、正在改的文件和任务描述提到的系统。
 2. 取这些实体直接挂接的经验、决策、规范页，去重后按问题做语义排序。实体栏最多三条，无合适锚点或挂接页时留空。
 3. 把实体栏放在全局搜索旁边。E009 的方式依赖搜索先找出实体，并尝试把关系邻居抬进全局结果。独立实体栏可以在同样的阅读预算内测到增益，也能直接查出它带进了多少错页。
+
+### 参考 AOCI-CODE
+
+[AOCI-CODE 读后感](../essays/05-aoci-code.md)记录了这次借鉴的来源。上游版本为 [`5f68ace`](https://github.com/aoci-spec/aoci-code/commit/5f68ace)，许可证为 [FSL-1.1-MIT](https://github.com/aoci-spec/aoci-code/blob/5f68ace/LICENSE)。
+
+- **对象身份。** 用仓库及其内的路径或符号标识实体，区分不同仓库或模块中的同名对象。见[对象规范](https://github.com/aoci-spec/aoci-code/blob/5f68ace/spec/public/aoci-object-fras-v2.txt)。
+- **可回查的证据。** 挂接记录保留可定位到具体版本的源码引用，便于复核人回查。复核时还需判断页面的主题和适用范围是否匹配该实体。见[系统关系规范](https://github.com/aoci-spec/aoci-code/blob/5f68ace/spec/public/aoci-system-cognition-runtime-v1.txt)。
+- **源码变化触发复审。** 借鉴上游的源码变更检测，引用的源码变化时，将受影响的挂接标记为待复审。见[更新流程](https://github.com/aoci-spec/aoci-code/blob/5f68ace/docs/cognition-refresh.md)。
 
 ### 运行前登记的判定线（草案）
 
