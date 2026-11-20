@@ -2,7 +2,7 @@
 
 - 结论：不行（按预设判定线：优化后比通用低 0.21。但搜索选中的「优化后」就是通用提示本身，差距全部是同一提示两次运行的噪声，见下文）
 - 日期：开始 2026-11-20 / 结束 2026-11-20
-- Issue / PR：[#34](https://github.com/yaodiff/memory-lab/issues/34) / __PR__
+- Issue / PR：[#34](https://github.com/yaodiff/memory-lab/issues/34) / [#41](https://github.com/yaodiff/memory-lab/pull/41)
 - 来源：业界论文 [Self-Improving Memory](https://facebookresearch.github.io/RAM/blogs/self_improving_memory/)（读后见 [第 04 篇](../../essays/04-self-improving-memory.md)）
 - 交接：无
 
