@@ -67,6 +67,13 @@ docs/              相关工作、CoALA 对照
 - [x] 评测：[E002 全部六个 case 的完整试跑](experiments/E002-next-step-replay-full/README.md)（模型和花费已经仓库主人确认）
 - [ ] 评测：人工校准、不同模型下的有效性验证
 
+### Timeline（时间线）
+
+- **2026-11-15** — [E001 和 E002](experiments/README.md)：Next-step Replay 冒烟测试和完整试跑。
+- **2026-11-20** — [E003–E008、E010–E012](experiments/README.md)：排序、记忆提示、实体检查、页面类型、去重及重放实验。
+- **2026-11-20** — [E009](experiments/E009-typed-relation-expansion/README.md)：从搜索结果沿实体关系扩一跳，多页全中率没有提高。
+- **2026-11-20** — 方向草案：[从任务上下文找实体](plans/plan-context-anchored-recall.md)，按问题排序实体挂接的记忆，在全局搜索旁边单独展示。
+
 ## 数据政策
 
 只用公开数据集，以及在公开开源仓库上合成的会话。不放任何专有代码、会话或文档。文章里的例子都经过改写或是合成的；内部测量只写比例或粗粒度描述，不放原始数据，并注明是我们自己场景下的小样本。

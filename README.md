@@ -69,6 +69,13 @@ docs/              related work, CoALA mapping
 - [x] Bench: [E002 complete shipped-case pilot](experiments/E002-next-step-replay-full/README.md) with owner-approved models and spending
 - [ ] Bench: human-calibrated, model-diverse effectiveness evaluation
 
+### Timeline
+
+- **2026-11-15** — [E001 and E002](experiments/README.md): Next-step Replay smoke test and full pilot.
+- **2026-11-20** — [E003–E008 and E010–E012](experiments/README.md): studies on ranking, memory prompts, entity checks, page types, deduplication, and replay.
+- **2026-11-20** — [E009](experiments/E009-typed-relation-expansion/README.md): one-hop expansion from search results did not improve complete multi-page recall.
+- **2026-11-20** — Proposed: [context-anchored entity recall](plans/plan-context-anchored-recall.en.md). Rank memory attached to entities identified from the task context and show it in a separate panel alongside global search.
+
 ## Data policy
 
 Only public datasets and synthetic sessions on public open-source repositories. No proprietary code, sessions, or documents. Examples in the essays are rewritten or synthetic; internal measurements are given only as ratios or in coarse terms, with no raw data, and are labelled as small samples from our own setting.
