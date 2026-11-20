@@ -7,3 +7,4 @@
 | E001 | [Next-step Replay bounded CLI smoke](E001-next-step-replay-smoke/README.md) | 说不清 | 2026-11-15 | 无 |
 | E002 | [Next-step Replay complete shipped-case pilot](E002-next-step-replay-full/README.md) | 说不清 | 2026-11-15 | 无 |
 | E003 | [LLM 相关性判别：硬剔除 vs 两段式重排，组内归一化陷阱](E003-llm-rerank-vs-hard-drop/README.md) | 说不清 | 2026-11-20 | 无 |
+| E007 | [与平台官方手册重复的记忆：取代 + 精简，并从整理侧拦住新增重复](E007-manual-overlap-dedup/README.md) | Inconclusive | 2026-11-20 | 无 |
