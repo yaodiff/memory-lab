@@ -37,6 +37,7 @@
 | 02 | [用团队记忆的一线数据读 Anthropic 的「记忆组件」](essays/02-reading-the-components.md) | [Reading Anthropic's "components of agent memory" against field data](essays/02-reading-the-components.en.md) |
 | 03 | [你的记忆评测可能虚高了：同会话泄漏](essays/03-same-session-leakage.md) | [Your memory eval may be inflated: same-session leakage](essays/03-same-session-leakage.en.md) |
 | 04 | [读 Meta 的 Self-Improving Memory：让模型改自己的记忆提示，再蒸馏进权重](essays/04-self-improving-memory.md) | [Reading Meta's Self-Improving Memory: the model rewrites its own memory prompts, then learns them](essays/04-self-improving-memory.en.md) |
+| 05 | [让编码 Agent 从手头的仓库找到相关记忆](essays/05-aoci-code.md) | [Finding the right memories from the repository already in view](essays/05-aoci-code.en.md) |
 
 ## 目录
 
@@ -59,13 +60,21 @@ docs/              相关工作、CoALA 对照
 - [x] 第 02 篇：用团队记忆的一线数据读 Anthropic 的记忆组件（草稿）
 - [x] 第 03 篇：同会话泄漏让记忆评测虚高（草稿，已补[描述性 demo 结果](essays/03-same-session-leakage.md#评测-demo-结果)）
 - [x] 第 04 篇：用团队记忆读 Meta 的 Self-Improving Memory（草稿，配合合成实验 [E004](experiments/E004-meta-optimized-memory-prompts/README.md)）
-- [ ] 第 05 篇：步骤级检索
+- [x] 第 05 篇：[读 AOCI-CODE](essays/05-aoci-code.md)
+- [ ] 待写文章：步骤级检索
 - [ ] 评测：在 Next-step Replay 上加「回看记录、核对记忆」对照组（计划见第 02 篇）
 - [ ] 复现：Mem0 与全上下文在 LoCoMo 上的对比
 - [ ] 复现：A-MEM 链接演化在 LoCoMo 上的消融
 - [x] 评测：[Next-step Replay demo](bench/next-step-replay/README.md)（Click 上六个合成纠正），附 [E001 冒烟测试](experiments/E001-next-step-replay-smoke/README.md)
 - [x] 评测：[E002 全部六个 case 的完整试跑](experiments/E002-next-step-replay-full/README.md)（模型和花费已经仓库主人确认）
 - [ ] 评测：人工校准、不同模型下的有效性验证
+
+### Timeline（时间线）
+
+- **2026-11-15** — [E001 和 E002](experiments/README.md)：Next-step Replay 冒烟测试和完整试跑。
+- **2026-11-20** — [E003–E008、E010–E012](experiments/README.md)：排序、记忆提示、实体检查、页面类型、去重及重放实验。
+- **2026-11-20** — [E009](experiments/E009-typed-relation-expansion/README.md)：从搜索结果沿实体关系扩一跳，多页全中率没有提高。
+- **2026-11-20** — 方向草案：[从任务上下文找实体](plans/plan-context-anchored-recall.md)，按问题排序实体挂接的记忆，在全局搜索旁边单独展示。
 
 ## 数据政策
 

@@ -38,6 +38,7 @@ Each essay is written in Chinese first, with an English version covering the sam
 | 02 | [Reading Anthropic's "components of agent memory" against field data from team memory](essays/02-reading-the-components.en.md) | [用团队记忆的一线数据读 Anthropic 的「记忆组件」](essays/02-reading-the-components.md) |
 | 03 | [Your memory eval may be inflated: same-session leakage](essays/03-same-session-leakage.en.md) | [你的记忆评测可能虚高了：同会话泄漏](essays/03-same-session-leakage.md) |
 | 04 | [Reading Meta's Self-Improving Memory: the model rewrites its own memory prompts, then learns them](essays/04-self-improving-memory.en.md) | [读 Meta 的 Self-Improving Memory：让模型改自己的记忆提示，再蒸馏进权重](essays/04-self-improving-memory.md) |
+| 05 | [Finding the right memories from the repository already in view](essays/05-aoci-code.en.md) | [让编码 Agent 从手头的仓库找到相关记忆](essays/05-aoci-code.md) |
 
 ## Layout
 
@@ -61,13 +62,21 @@ docs/              related work, CoALA mapping
 - [x] Essay 02: reading Anthropic's components of agent memory against our field data (draft)
 - [x] Essay 03: same-session leakage inflates memory evals (draft; [descriptive demo results](essays/03-same-session-leakage.en.md#eval-demo-results) added)
 - [x] Essay 04: reading Meta's Self-Improving Memory against team memory (draft; with the synthetic [E004](experiments/E004-meta-optimized-memory-prompts/README.md))
-- [ ] Essay 05: step-conditioned retrieval
+- [x] Essay 05: [reading AOCI-CODE](essays/05-aoci-code.en.md)
+- [ ] Essay: step-conditioned retrieval
 - [ ] Bench: "look back and verify memory" arms on Next-step Replay (planned in essay 02)
 - [ ] Repro: Mem0 vs full context on LoCoMo
 - [ ] Repro: A-MEM link evolution ablation on LoCoMo
 - [x] Bench: [Next-step Replay demo](bench/next-step-replay/README.md) on Click (six synthetic corrections), with [E001 bounded smoke evidence](experiments/E001-next-step-replay-smoke/README.md)
 - [x] Bench: [E002 complete shipped-case pilot](experiments/E002-next-step-replay-full/README.md) with owner-approved models and spending
 - [ ] Bench: human-calibrated, model-diverse effectiveness evaluation
+
+### Timeline
+
+- **2026-11-15** — [E001 and E002](experiments/README.md): Next-step Replay smoke test and full pilot.
+- **2026-11-20** — [E003–E008 and E010–E012](experiments/README.md): studies on ranking, memory prompts, entity checks, page types, deduplication, and replay.
+- **2026-11-20** — [E009](experiments/E009-typed-relation-expansion/README.md): one-hop expansion from search results did not improve complete multi-page recall.
+- **2026-11-20** — Proposed: [context-anchored entity recall](plans/plan-context-anchored-recall.en.md). Rank memory attached to entities identified from the task context and show it in a separate panel alongside global search.
 
 ## Data policy
 

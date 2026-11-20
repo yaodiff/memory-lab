@@ -6,3 +6,4 @@
 | 方案 | 状态 | 创建日期 | 最后更新 | 总 issue |
 | --- | --- | --- | --- | --- |
 | [团队记忆质量治理](team-memory-quality/README.md) | 草案 | 2026-11-19 | 2026-11-19 | #17 |
+| [从任务上下文找实体，再召回挂接的记忆](plan-context-anchored-recall.md) · [English](plan-context-anchored-recall.en.md) | 待用户评审 | 2026-11-20 | 2026-11-20 | [#64](https://github.com/yaodiff/memory-lab/issues/64) |

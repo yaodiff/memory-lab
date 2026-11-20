@@ -1,0 +1,13 @@
+# Finding the right memories from the repository already in view
+
+English · [中文](05-aoci-code.md)
+
+This note covers upstream commit [`5f68ace`](https://github.com/aoci-spec/aoci-code/commit/5f68ace), licensed under [FSL-1.1-MIT](https://github.com/aoci-spec/aoci-code/blob/5f68ace/LICENSE).
+
+A coding agent often knows which repository it is in and which file it is looking at before it starts a task. Reading AOCI-CODE left me with a question. Can those clues help the agent find the few memory pages worth opening?
+
+AOCI-CODE keeps a map of the repository in Git alongside the code. A model writes short entries for files and database tables, covering responsibilities, strong relationships, interfaces, and easy-to-miss constraints. The program detects changes using source fingerprints and gives the affected objects back to the model for an update. Through MCP, the agent can load an overview, open entries by object, or query by keyword and tag. [AOCI-CODE README](https://github.com/aoci-spec/aoci-code/blob/5f68ace/README.md) · [MCP contract](https://github.com/aoci-spec/aoci-code/blob/5f68ace/spec/public/aoci-mcp-runtime-v1.txt)
+
+Consider a memory about retries that cites a real retry function. Several services may share that function, while the page describes a migration in just one of them. Finding the function at the cited revision makes the reference verifiable. Assigning the page to a service still takes a judgment about its topic and scope. AOCI-CODE similarly derives a graph from resolvable, model-authored relationships. Their meaning still needs review. [System Cognition contract](https://github.com/aoci-spec/aoci-code/blob/5f68ace/spec/public/aoci-system-cognition-runtime-v1.txt)
+
+I would start with a small comparison using public repositories and synthetic memories. Both runs get the same tasks, the same global search results, and the same reading budget. One follows the global ranking. The other spends a few of its slots on reviewed pages attached to entities visible at the start of the task. Include same-name modules, obsolete guidance, and tasks with no reliable anchor. Then check which run reads every required page, picks up a distracting page, and takes the right next step. The [context-anchored entity recall plan](../plans/plan-context-anchored-recall.en.md) describes this proposed experiment. The upstream black-box suite offers a pattern for freezing fixtures and checking the end state. The task comparison would measure what the agent reads and what it does with it. [Upstream black-box suites](https://github.com/aoci-spec/aoci-code/blob/5f68ace/scripts/blackbox/README.md)
