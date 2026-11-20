@@ -1,0 +1,502 @@
+{
+  "started": "2026-11-20T07:52:25Z",
+  "finished": "2026-11-20T08:18:48Z",
+  "model_requested": "haiku",
+  "stream_len": 14,
+  "memory_cap": 2000,
+  "drift_from": 9,
+  "train_world": {
+    "amber": {
+      "price": "dollars",
+      "qty": "units"
+    },
+    "birch": {
+      "price": "cents",
+      "qty": "units"
+    },
+    "cobalt": {
+      "price": "cents",
+      "qty": "dozens"
+    },
+    "dune": {
+      "price": "dollars",
+      "qty": "dozens"
+    },
+    "ember": {
+      "price": "dollars",
+      "qty": "dozens"
+    }
+  },
+  "test_worlds": [
+    {
+      "fjord": {
+        "price": "dollars",
+        "qty": "units"
+      },
+      "garnet": {
+        "price": "cents",
+        "qty": "units"
+      },
+      "hollow": {
+        "price": "dollars",
+        "qty": "dozens"
+      },
+      "iris": {
+        "price": "cents",
+        "qty": "units"
+      },
+      "juniper": {
+        "price": "cents",
+        "qty": "dozens"
+      }
+    },
+    {
+      "kelp": {
+        "price": "cents",
+        "qty": "units"
+      },
+      "lumen": {
+        "price": "cents",
+        "qty": "dozens"
+      },
+      "moss": {
+        "price": "cents",
+        "qty": "units"
+      },
+      "nectar": {
+        "price": "dollars",
+        "qty": "dozens"
+      },
+      "onyx": {
+        "price": "dollars",
+        "qty": "units"
+      }
+    },
+    {
+      "pebble": {
+        "price": "cents",
+        "qty": "dozens"
+      },
+      "quartz": {
+        "price": "dollars",
+        "qty": "units"
+      },
+      "reed": {
+        "price": "cents",
+        "qty": "units"
+      },
+      "sable": {
+        "price": "dollars",
+        "qty": "dozens"
+      },
+      "tundra": {
+        "price": "dollars",
+        "qty": "dozens"
+      }
+    }
+  ],
+  "search": {
+    "generic": {
+      "score": 0.6428571428571429,
+      "runs": {
+        "train-0": {
+          "all": 0.6428571428571429,
+          "repeat_visits": 1.0,
+          "drifted": 0.5,
+          "no_answer": 1,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "train-1": {
+          "all": 0.6428571428571429,
+          "repeat_visits": 1.0,
+          "drifted": 0.6666666666666666,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        }
+      },
+      "load": "Read your memory directory before you start; how you organize it is your decision.",
+      "offload": "After the task, update the memory directory, deciding yourself what to keep.",
+      "parent": null,
+      "diagnosis": null
+    },
+    "summary": {
+      "score": 0.5,
+      "runs": {
+        "train-0": {
+          "all": 0.5714285714285714,
+          "repeat_visits": 1.0,
+          "drifted": 0.0,
+          "no_answer": 1,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "train-1": {
+          "all": 0.42857142857142855,
+          "repeat_visits": 0.8333333333333334,
+          "drifted": 0.3333333333333333,
+          "no_answer": 1,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        }
+      },
+      "load": "Read your one running summary and check each step against it.",
+      "offload": "Fold what this task taught you into that single running summary.",
+      "parent": null,
+      "diagnosis": null
+    },
+    "skill": {
+      "score": 0.5714285714285714,
+      "runs": {
+        "train-0": {
+          "all": 0.6428571428571429,
+          "repeat_visits": 1.0,
+          "drifted": 0.5,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "train-1": {
+          "all": 0.5,
+          "repeat_visits": 1.0,
+          "drifted": 0.0,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        }
+      },
+      "load": "Read SKILLS.md and apply any procedure whose trigger matches this task before answering.",
+      "offload": "Keep SKILLS.md as a list of reusable procedures, each with a trigger and steps. Add or fix a procedure when this task showed one was missing or wrong.",
+      "parent": null,
+      "diagnosis": null
+    },
+    "meta-i1-0": {
+      "score": 0.5,
+      "runs": {
+        "train-0": {
+          "all": 0.5714285714285714,
+          "repeat_visits": 0.8571428571428571,
+          "drifted": 0.5,
+          "no_answer": 1,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "train-1": {
+          "all": 0.42857142857142855,
+          "repeat_visits": 1.0,
+          "drifted": 0.0,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        }
+      },
+      "load": "Read the entire memory directory first. Before answering, list every stored rule that applies to the current task's attributes, check which points are confirmed by feedback versus unverified, and note any conflicting evidence. Use confirmed rules directly; for conflicts or unverified rules, apply the stated fallback and flag the uncertainty in your answer. Do not invent values that memory does not support.",
+      "offload": "After feedback, rewrite the memory directory within the size limit. For each task, record every input attribute (not just the grouping key), the computed value, the correct value from feedback, and whether it was confirmed. Update each rule's status from the new evidence: confirm, contradict, or mark conflicting, and when a conflict appears, record the candidate variables that could separate the cases and the evidence for each. Remove or correct any rule the feedback contradicts, and keep the rules section short and current.",
+      "parent": "generic",
+      "diagnosis": "The agent never captured the hidden factor's real driver: it recorded per-group factors and treated them as fixed, so when ember flipped from 12 to 0.12 and birch/dune/cobalt values were inconsistently graded, it could not tell whether the cause was a variable it failed to log (e.g., order date, sub-attribute, or sequence) or a mis-recorded graded value. It also wrote memory that mixed unverified guesses with confirmed facts and did not store the full order fields needed to test hypotheses later, so memory could not be used to resolve conflicts."
+    },
+    "meta-i1-1": {
+      "score": 0.6071428571428572,
+      "runs": {
+        "train-0": {
+          "all": 0.6428571428571429,
+          "repeat_visits": 1.0,
+          "drifted": 0.5,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "train-1": {
+          "all": 0.5714285714285714,
+          "repeat_visits": 1.0,
+          "drifted": 0.3333333333333333,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        }
+      },
+      "load": "Read SKILLS.md in full before answering. Find every procedure whose trigger matches the task and apply it. Do not skip a procedure because a field is missing from the prompt, since the factor may sit in a hidden field. Compute the base value, then apply the best-supported factor from the evidence log and hypotheses, and always give a numeric answer. Label the factor as a guess when evidence is thin, and state which evidence it rests on.",
+      "offload": "Keep SKILLS.md under 2000 characters with three parts. (1) A procedure for computing the answer from visible fields, including a step that checks for hidden or unlisted factor fields. (2) An evidence log with one line per feedback-confirmed order: order id, group, visible fields, and implied factor, where implied factor = correct / (price x quantity). (3) Hypotheses stated as testable conditions on visible fields, each listing supporting and contradicting order ids. After each feedback, append the log line, then promote a hypothesis that fits all evidence or retire it and record the counterexample. Do not store group-level facts unless the log supports them. Keep a default factor for unseen cases, marked as a guess, so every task gets an answer.",
+      "parent": "skill",
+      "diagnosis": "The memory treated the scaling factor as a fixed property of each shop group, so every counterexample forced a relabeling of the group, and the skill never recorded per-order evidence that could expose a hidden per-order field. In the second run the agent over-corrected by gating answers on group stability, which left first-visit orders unanswered or wrong even though a best-supported guess was available."
+    },
+    "meta-i2-0": {
+      "score": 0.5714285714285714,
+      "runs": {
+        "train-0": {
+          "all": 0.5714285714285714,
+          "repeat_visits": 1.0,
+          "drifted": 0.0,
+          "no_answer": 2,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "train-1": {
+          "all": 0.5714285714285714,
+          "repeat_visits": 1.0,
+          "drifted": 0.6666666666666666,
+          "no_answer": 1,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        }
+      },
+      "load": "Read the entire memory directory before answering. Check whether it has a stated rule for this task's group and whether any rule is marked conflicting or unverified. Apply a recorded rule only if feedback has confirmed it. If the group is new, conflicting, or unverified, say so and follow the procedure written in memory. Never borrow a value from another group, and never default to an unverified factor.",
+      "offload": "After feedback, update the directory in this order: (1) add one record per task with every identifying field and input (id, group, date, and any other attribute present), the correct value, and the derived factor; (2) mark each record as feedback-confirmed or unconfirmed; (3) check every existing rule against all feedback and, when feedback contradicts a rule, rewrite the rule and note the error; (4) for any conflict, list the candidate variables that separate the conflicting cases and the field needed to test each one. Keep the file under 2000 characters: once a rule is confirmed, replace its raw examples with a one-line summary, and cut the oldest raw logs first. Before finishing, check the total length and make sure no rule or open question is truncated.",
+      "parent": "generic",
+      "diagnosis": "The agent kept only a per-group factor and dropped the order-level fields (order date, other attributes) that could explain the ember conflict, so it could never test a hypothesis. Run 2's notes also grew past the 2000-character cap and were cut off mid-rule, losing the instructions for the groups that were still usable."
+    },
+    "meta-i2-1": {
+      "score": 0.3571428571428571,
+      "runs": {
+        "train-0": {
+          "all": 0.2857142857142857,
+          "repeat_visits": 0.42857142857142855,
+          "drifted": 0.0,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "train-1": {
+          "all": 0.42857142857142855,
+          "repeat_visits": 0.6666666666666666,
+          "drifted": 0.3333333333333333,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        }
+      },
+      "load": "Read SKILLS.md in full before answering. If the file looks truncated or a hypothesis line is cut off, ignore the broken line and rely on the intact log and hypotheses. Using the visible fields, including group, find promoted hypotheses whose conditions match. If a group has mixed factors, apply only the sub-condition that fits all of its logged orders. Compute base = price x quantity. Scan the raw input for hidden factor fields (discount, scale, unit, currency, multiplier, fee, notes) and apply one only if a hypothesis covers it. If nothing matches, use the default factor and label the answer a GUESS, naming the evidence it rests on. Always give a numeric answer and never skip a task.",
+      "offload": "Rewrite SKILLS.md in full each time and keep it under 2000 characters. Count the length before writing; if it is over, compress older log lines to the short form (id|group|p|q|f) and trim retired hypothesis text first, but never drop the procedure or the default factor. The file has three parts. (1) Procedure: compute base from visible fields, scan raw input for hidden or unlisted factor fields, apply the matching promoted hypothesis, otherwise use the default guess, and always answer. (2) Evidence log: one line per feedback-confirmed order with order id, group, visible fields, and implied factor = correct / (price x quantity). Append the new line after every feedback. (3) Hypotheses: testable conditions on visible fields (group, price or quantity bounds using the tightest bounds the data supports, order-id ranges, other fields), each listing supporting and contradicting order ids. Mark hypotheses with fewer than 2 supporting orders as provisional. After each feedback, if a promoted hypothesis is contradicted, retire it and record the counterexample id. If one group shows mixed factors, search visible fields, including order id, for a partition that fits all its orders; if one exists, write the two sub-conditions as separate hypotheses, and if not, record the group as unresolved rather than as a fixed rule. Treat factors that differ by a power of 10 or a fixed ratio as a possible unit or scale field and test that explicitly. Do not store group-level facts the log does not support. Keep a default factor marked GUESS with its basis stated.",
+      "parent": "meta-i1-1",
+      "diagnosis": "SKILLS.md was not kept complete or consistent: in run 2 the file ends at an empty 'H7:' line, likely from the 2000-character cap, and run 2 also refers to an 'H7/H8 split' that does not exist, so the mixed-factor ember group was never resolved. The agent also never searched visible fields or order ids for the feature that separates mixed-factor orders, and it left repeated factor ratios (1, 0.12, 0.01, 12) as unit questions instead of testing a scale hypothesis, while run 1 applied an overly loose price-threshold rule that misfired on first visits."
+    }
+  },
+  "selected": "generic",
+  "test": {
+    "generic": {
+      "all": 0.5714285714285715,
+      "repeat_visits": 0.875,
+      "drifted": 0.38888888888888884,
+      "no_answer": 3,
+      "per_world": {
+        "test-0": {
+          "all": 0.7142857142857143,
+          "repeat_visits": 1.0,
+          "drifted": 0.6666666666666666,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        },
+        "test-1": {
+          "all": 0.6428571428571429,
+          "repeat_visits": 1.0,
+          "drifted": 0.5,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "test-2": {
+          "all": 0.35714285714285715,
+          "repeat_visits": 0.625,
+          "drifted": 0.0,
+          "no_answer": 3,
+          "n": 14,
+          "n_repeat": 8,
+          "n_drifted": 1
+        }
+      }
+    },
+    "summary": {
+      "all": 0.5714285714285715,
+      "repeat_visits": 0.8630952380952381,
+      "drifted": 0.27777777777777773,
+      "no_answer": 5,
+      "per_world": {
+        "test-0": {
+          "all": 0.7142857142857143,
+          "repeat_visits": 1.0,
+          "drifted": 0.3333333333333333,
+          "no_answer": 2,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        },
+        "test-1": {
+          "all": 0.5,
+          "repeat_visits": 0.7142857142857143,
+          "drifted": 0.5,
+          "no_answer": 2,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "test-2": {
+          "all": 0.5,
+          "repeat_visits": 0.875,
+          "drifted": 0.0,
+          "no_answer": 1,
+          "n": 14,
+          "n_repeat": 8,
+          "n_drifted": 1
+        }
+      }
+    },
+    "skill": {
+      "all": 0.3333333333333333,
+      "repeat_visits": 0.6130952380952381,
+      "drifted": 0.1111111111111111,
+      "no_answer": 1,
+      "per_world": {
+        "test-0": {
+          "all": 0.5714285714285714,
+          "repeat_visits": 1.0,
+          "drifted": 0.3333333333333333,
+          "no_answer": 1,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        },
+        "test-1": {
+          "all": 0.35714285714285715,
+          "repeat_visits": 0.7142857142857143,
+          "drifted": 0.0,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "test-2": {
+          "all": 0.07142857142857142,
+          "repeat_visits": 0.125,
+          "drifted": 0.0,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 8,
+          "n_drifted": 1
+        }
+      }
+    },
+    "transplant": {
+      "all": 0.4285714285714286,
+      "repeat_visits": 0.7242063492063492,
+      "drifted": 0.0,
+      "no_answer": 8,
+      "per_world": {
+        "test-0": {
+          "all": 0.5,
+          "repeat_visits": 0.8333333333333334,
+          "drifted": 0.0,
+          "no_answer": 4,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        },
+        "test-1": {
+          "all": 0.35714285714285715,
+          "repeat_visits": 0.7142857142857143,
+          "drifted": 0.0,
+          "no_answer": 3,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "test-2": {
+          "all": 0.42857142857142855,
+          "repeat_visits": 0.625,
+          "drifted": 0.0,
+          "no_answer": 1,
+          "n": 14,
+          "n_repeat": 8,
+          "n_drifted": 1
+        }
+      }
+    },
+    "optimized": {
+      "all": 0.35714285714285715,
+      "repeat_visits": 0.6051587301587301,
+      "drifted": 0.27777777777777773,
+      "no_answer": 4,
+      "per_world": {
+        "test-0": {
+          "all": 0.42857142857142855,
+          "repeat_visits": 0.8333333333333334,
+          "drifted": 0.3333333333333333,
+          "no_answer": 3,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        },
+        "test-1": {
+          "all": 0.5714285714285714,
+          "repeat_visits": 0.8571428571428571,
+          "drifted": 0.5,
+          "no_answer": 1,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "test-2": {
+          "all": 0.07142857142857142,
+          "repeat_visits": 0.125,
+          "drifted": 0.0,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 8,
+          "n_drifted": 1
+        }
+      }
+    },
+    "no_memory": {
+      "all": 0.16666666666666666,
+      "repeat_visits": 0.19246031746031744,
+      "drifted": 0.0,
+      "no_answer": 0,
+      "per_world": {
+        "test-0": {
+          "all": 0.21428571428571427,
+          "repeat_visits": 0.16666666666666666,
+          "drifted": 0.0,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 6,
+          "n_drifted": 3
+        },
+        "test-1": {
+          "all": 0.14285714285714285,
+          "repeat_visits": 0.2857142857142857,
+          "drifted": 0.0,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 7,
+          "n_drifted": 2
+        },
+        "test-2": {
+          "all": 0.14285714285714285,
+          "repeat_visits": 0.125,
+          "drifted": 0.0,
+          "no_answer": 0,
+          "n": 14,
+          "n_repeat": 8,
+          "n_drifted": 1
+        }
+      }
+    }
+  }
+}
