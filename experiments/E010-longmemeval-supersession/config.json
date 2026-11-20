@@ -1,0 +1,30 @@
+{
+  "dataset": {
+    "repo": "datasets/xiaowu0162/longmemeval-cleaned",
+    "revision": "98d7416c24c7",
+    "file": "longmemeval_s_cleaned.json",
+    "sha256_base64": "1vIeqdYKDVbzSgW2CceciKRR0q4DWXgh6j1alnjDpEI="
+  },
+  "model": {
+    "repo": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "revision": "91cad51170dc",
+    "file": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+    "sha256_base64": "ahouttFWIr88loVyBjUbqX4a8Www16dO44lw5DTpQH4="
+  },
+  "model_alias": "qwen2.5-1.5b-instruct-q4_k_m",
+  "llama_cpp_release": "b12560",
+  "sample_per_stratum": 20,
+  "sample_salt": "20261120",
+  "repeat_seeds": [
+    101,
+    202
+  ],
+  "answer_temperature": 0.4,
+  "summary_bins": 12,
+  "words_per_chunk": 160,
+  "overlap_words": 32,
+  "top_k": 6,
+  "gate_min_coverage": 0.35,
+  "minimum_gain_pp": 10,
+  "minimum_judge_agreement": 0.9
+}
