@@ -17,3 +17,4 @@
 | E011 | [Next-step replay with historical and current memory](E011-next-step-memory-replay/README.md) | Inconclusive | 2026-11-20 | 无 |
 | E012 | [Local memory retrieval on LongMemEval](E012-local-memory-components/README.md) | Inconclusive | 2026-11-20 | 无 |
 | E013 | [Hot-tier candidate cooling — retrieval non-regression gate](E013-hot-tier-candidate-cooling/README.md) | Works | 2026-11-22 | 无 |
+| E014 | [Memory usage instructions and held-out regression](E014-memory-instruction-regression/README.md) | Inconclusive | 2026-11-22 | 无 |
