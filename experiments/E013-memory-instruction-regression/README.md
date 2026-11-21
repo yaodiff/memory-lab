@@ -17,7 +17,7 @@ The development threshold required at least a 10 percentage point gain on comple
 
 ## Results
 
-We completed 100.0% of held-out cases, 100.0% of development behavior cases, and 86.8% of development retrieval cases. The retrieval denominator below is the paired cases with a labeled answer or source entry. Behavior rates use completed plans.
+We completed 100.0% of held-out cases, 100.0% of development behavior cases, and 87.5% of development retrieval cases. The retrieval denominator below is the paired cases with a labeled answer or source entry. Behavior rates use completed plans.
 
 | Measure | Baseline | Revised |
 | --- | ---: | ---: |
@@ -30,9 +30,9 @@ We completed 100.0% of held-out cases, 100.0% of development behavior cases, and
 | Development correct next step | 90.8% | 93.4% |
 | Development all requirements covered | 56.6% | 59.2% |
 | Development mistaken adoption | 0.0% | 0.0% |
-| Development labeled retrieval at 3, observed pairs only | 79.7% | 81.0% |
+| Development labeled retrieval at 3, observed pairs only | 78.8% | 80.0% |
 
-Mean token use per new paired case changed by +3.8% for held-out retrieval and +0.4% for held-out behavior. It changed by -0.3% for development retrieval and +0.4% for development behavior. Estimates include cached input in both arms and exclude reused pilot usage.
+Mean token use per new paired case changed by +3.8% for held-out retrieval and +0.4% for held-out behavior. It changed by -0.2% for development retrieval and +0.4% for development behavior. Estimates include cached input in both arms and exclude reused pilot usage.
 
 ## Conclusion
 
