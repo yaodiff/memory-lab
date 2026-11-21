@@ -16,3 +16,4 @@
 | E010 | [Supersession and abstention on LongMemEval](E010-longmemeval-supersession/README.md) | Inconclusive | 2026-11-20 | 无 |
 | E011 | [Next-step replay with historical and current memory](E011-next-step-memory-replay/README.md) | Inconclusive | 2026-11-20 | 无 |
 | E012 | [Local memory retrieval on LongMemEval](E012-local-memory-components/README.md) | Inconclusive | 2026-11-20 | 无 |
+| E013 | [Memory usage instructions and held-out regression](E013-memory-instruction-regression/README.md) | Inconclusive | 2026-11-22 | 无 |
