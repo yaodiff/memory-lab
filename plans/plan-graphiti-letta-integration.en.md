@@ -4,7 +4,7 @@ English · [中文](plan-graphiti-letta-integration.md)
 
 - Status: awaiting owner review
 - Dates: created 2026-11-21 / last updated 2026-11-21
-- Tracking issue: [#72](https://github.com/yaodiff/memory-lab/issues/72) / Experiments: pending registration
+- Tracking issue: [#72](https://github.com/yaodiff/memory-lab/issues/72) / Experiments: [E013](https://github.com/yaodiff/memory-lab/issues/77) (hot-tier candidate cooling, Works)
 
 ## Background and problem
 
@@ -183,5 +183,8 @@ Discipline: any Inconclusive stops that experiment and triggers diagnosis rather
 
 ## Deviations
 
-None at the draft stage.
+- 2026-11-22 (after the first batch started): **G1 handed off and the L1 leverage path corrected.**
+  - The G1 programmatic dedup funnel was coordinated into a separate entity-rules workstream to avoid duplication; this plan no longer runs G1 itself, while that workstream reuses the funnel thinking surveyed here.
+  - A pre-execution read-volume calibration found the original "file-block character budget" had no causal path: across hundreds of historical trials agents almost never read a large block wholesale, opening only the short navigation head each time, while the context actually consumed was a small set of retrieval results. After confirmation, L1 was reframed as demoting no-reusable-value pages out of the default retrieval candidate set, keeping originals readable by exact ID. Its retrieval non-regression gate was completed offline as [E013](https://github.com/yaodiff/memory-lab/issues/77) with a Works result. The behavior arm is deferred because the cooled set is too small and the historical wrong-adoption baseline for those pages is zero; scaling the adjudication up requires separate approval.
+- No other deviations at the draft stage.
 
