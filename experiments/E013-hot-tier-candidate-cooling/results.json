@@ -1,0 +1,43 @@
+{
+  "experiment": "E013-hot-tier-candidate-cooling",
+  "conclusion": "Works",
+  "ran_utc": "2026-11-22",
+  "model_calls": 0,
+  "production_traffic": false,
+  "retriever": "local lexical FTS5 proxy (same tokenizer/rank function in both arms)",
+  "arms": ["baseline", "cooled"],
+  "cooling": {
+    "method": "remove dual-model-adjudicated no-reusable-value pages from the full-text index only; summaries and page files retained for exact-ID reads",
+    "demoted_share_of_affected_library": "well below one percent",
+    "demoted_page_baseline_result_window_exposures": "none",
+    "physical_deletions": 0
+  },
+  "gate_rules_frozen_before_run": {
+    "works": "answer top-1 and top-3 do not decrease; trap-in-top-3 does not increase",
+    "does_not_work": "any gold leaves top-1/top-3 or trap-in-top-3 rises",
+    "inconclusive": "arms non-comparable due to retriever differences"
+  },
+  "scores": {
+    "answer_top1": {"baseline_vs_cooled": "identical", "delta": 0},
+    "answer_top3": {"baseline_vs_cooled": "identical", "delta": 0},
+    "trap_in_top3": {"baseline_vs_cooled": "identical", "delta": 0},
+    "consistency": "metrics identical across arms on the development split, the frozen-regression split, and the single affected workspace considered alone"
+  },
+  "ordering_differences": {
+    "questions_with_any_top10_order_change": "a small handful",
+    "with_changed_page_membership": 0,
+    "with_changed_top1_top3_or_trap": 0,
+    "nature": "benign internal tie-break reorder"
+  },
+  "behavior_arm": {
+    "status": "not run",
+    "reason": "historical-trial trace shows no wrong-adoption event associated with the demoted pages; a relative-reduction bar is unmeetable at this small scale and the run would be an avoidable spend",
+    "prerequisite_for_future": "run value adjudication over a much larger page set; requires separate scale and budget approval"
+  },
+  "limitations": [
+    "demoted labels inherited from an earlier independent dual-model review, not re-adjudicated",
+    "lexical proxy cannot reproduce production semantic ranking; same-machine arm contrast only",
+    "validates the cooling projection method, not the large-scale hot-tier reduction target",
+    "no production memory or product code changed"
+  ]
+}
