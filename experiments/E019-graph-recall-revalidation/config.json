@@ -1,0 +1,60 @@
+{
+  "experiment": "E019",
+  "sample": {
+    "total": 120,
+    "cases_per_stratum": 30,
+    "clusters": 10,
+    "excluded": 0
+  },
+  "retrieval": {
+    "read_budget": 6,
+    "global_depth": 10,
+    "leg_depth": 12,
+    "rerank_depth": 12,
+    "rrf_k": 60,
+    "weak_seed_cosine_floor": 0.25,
+    "graph_seed_depth": 8,
+    "graph_steps": 2,
+    "graph_decay": 0.55,
+    "panel_depth": 3
+  },
+  "embedding": {
+    "model": "Xenova/paraphrase-multilingual-MiniLM-L12-v2",
+    "revision": "2c4055b12046",
+    "sha256": {
+      "model.onnx": "66fc00f5f29a",
+      "tokenizer.json": "b60b6b43406a"
+    }
+  },
+  "reranker": {
+    "model": "Xenova/ms-marco-MiniLM-L-6-v2",
+    "revision": "a09144355ade",
+    "sha256": {
+      "model.onnx": "e9d8ebf845c4",
+      "tokenizer.json": "d241a60d5e8f"
+    }
+  },
+  "runtime": {
+    "numpy": "2.4.4",
+    "onnxruntime": "1.24.4",
+    "tokenizers": "0.22.2"
+  },
+  "judge": {
+    "model": "codex/gpt-6.2-sol",
+    "resolved_model": "gpt-6.2-sol",
+    "effort": "low",
+    "rounds": 2,
+    "batch_size": 8,
+    "max_completion_tokens": 1100,
+    "usage_cap": 7500000
+  },
+  "decision": {
+    "gain_pp": 10,
+    "wrong_page_max_increase_pp": 5,
+    "attachment_precision_floor": 0.9,
+    "attachment_recall_floor": 0.8,
+    "bootstrap_draws": 10000,
+    "bootstrap_seed": 190056
+  },
+  "fixture_sha256": "9bd4a83dc64b"
+}
