@@ -22,3 +22,4 @@
 | E016 | [Evidence-backed entity attachment changes](E016-entity-attachment-review/README.md) | Inconclusive | 2026-11-22 | 无 |
 | E017 | [Programmatic screening for duplicate entities](E017-duplicate-screening/README.md) | Does not work | 2026-11-22 | 无 |
 | E018 | [Adding rule pages and repeating the behavior evaluation](E018-rule-page-admission/README.md) | Inconclusive | 2026-11-22 | 无 |
+| E019 | [复验关系候选融合与任务上下文锚定](E019-graph-recall-revalidation/README.md) | Works（合成题找齐证据） | 2026-11-24 | 无 |
