@@ -29,10 +29,11 @@ Use only the supplied material. Return a JSON array and nothing else, with one o
 and exactly the fields key, all_required, wrong_top3, wrong_top6. Values other than key are booleans."""
 
 
-def jobs(orders):
-    fixture = cases()
+def jobs(orders, fixture=None, arms=ARMS):
+    if fixture is None:
+        fixture = cases()
     for run in range(J["rounds"]):
-        for arm in ARMS:
+        for arm in arms:
             shuffled = fixture.copy()
             random.Random(f"E019/judge/{run}/{arm}").shuffle(shuffled)
             for offset in range(0, len(shuffled), J["batch_size"]):
