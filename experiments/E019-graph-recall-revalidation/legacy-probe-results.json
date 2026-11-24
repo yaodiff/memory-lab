@@ -1,0 +1,233 @@
+{
+  "preregistered_commit": "1d472d69f7af",
+  "n": 60,
+  "groups": {
+    "named_supported": {
+      "cases": 20,
+      "intended_owner_seed": 18,
+      "entity_gold_outside_a_top10": 3
+    },
+    "named_unsupported": {
+      "cases": 20,
+      "intended_owner_seed": 20,
+      "entity_gold_outside_a_top10": 1
+    },
+    "generic_supported": {
+      "cases": 20,
+      "intended_owner_seed": 2,
+      "entity_gold_outside_a_top10": 17
+    }
+  },
+  "arms": {
+    "A_global": {
+      "gold": {
+        "all_top6": 21,
+        "all_native": 39,
+        "entity_top6": 21,
+        "entity_native": 39,
+        "wrong_top3": 50,
+        "wrong_top6": 60,
+        "named_supported/all_top6": 9,
+        "named_supported/all_native": 17,
+        "named_supported/entity_top6": 9,
+        "named_supported/entity_native": 17,
+        "named_supported/wrong_top3": 17,
+        "named_supported/wrong_top6": 20,
+        "named_unsupported/all_native": 19,
+        "named_unsupported/entity_native": 19,
+        "named_unsupported/wrong_top3": 14,
+        "named_unsupported/wrong_top6": 20,
+        "generic_supported/wrong_top3": 19,
+        "generic_supported/wrong_top6": 20,
+        "named_unsupported/all_top6": 11,
+        "named_unsupported/entity_top6": 11,
+        "generic_supported/all_top6": 1,
+        "generic_supported/all_native": 3,
+        "generic_supported/entity_top6": 1,
+        "generic_supported/entity_native": 3
+      },
+      "judge_totals": [
+        {
+          "all_required": 21,
+          "wrong_top3": 50,
+          "wrong_top6": 60
+        },
+        {
+          "all_required": 21,
+          "wrong_top3": 50,
+          "wrong_top6": 60
+        }
+      ],
+      "judge_agreement": {
+        "all_required": 60,
+        "wrong_top3": 60,
+        "wrong_top6": 60
+      },
+      "judge_noise": {
+        "all_required": {
+          "interval_pp": [
+            0.0,
+            0.0
+          ],
+          "radius_pp": 0.0
+        },
+        "wrong_top3": {
+          "interval_pp": [
+            0.0,
+            0.0
+          ],
+          "radius_pp": 0.0
+        },
+        "wrong_top6": {
+          "interval_pp": [
+            0.0,
+            0.0
+          ],
+          "radius_pp": 0.0
+        }
+      }
+    },
+    "B_append": {
+      "gold": {
+        "all_top6": 21,
+        "all_native": 44,
+        "entity_top6": 21,
+        "entity_native": 44,
+        "wrong_top3": 50,
+        "wrong_top6": 60,
+        "named_supported/all_top6": 9,
+        "named_supported/all_native": 20,
+        "named_supported/entity_top6": 9,
+        "named_supported/entity_native": 20,
+        "named_supported/wrong_top3": 17,
+        "named_supported/wrong_top6": 20,
+        "named_unsupported/all_native": 19,
+        "named_unsupported/entity_native": 19,
+        "named_unsupported/wrong_top3": 14,
+        "named_unsupported/wrong_top6": 20,
+        "generic_supported/wrong_top3": 19,
+        "generic_supported/wrong_top6": 20,
+        "named_unsupported/all_top6": 11,
+        "named_unsupported/entity_top6": 11,
+        "generic_supported/all_top6": 1,
+        "generic_supported/all_native": 5,
+        "generic_supported/entity_top6": 1,
+        "generic_supported/entity_native": 5
+      },
+      "judge_totals": [
+        {
+          "all_required": 21,
+          "wrong_top3": 50,
+          "wrong_top6": 60
+        },
+        {
+          "all_required": 21,
+          "wrong_top3": 50,
+          "wrong_top6": 60
+        }
+      ],
+      "judge_agreement": {
+        "all_required": 60,
+        "wrong_top3": 60,
+        "wrong_top6": 60
+      },
+      "judge_noise": {
+        "all_required": {
+          "interval_pp": [
+            0.0,
+            0.0
+          ],
+          "radius_pp": 0.0
+        },
+        "wrong_top3": {
+          "interval_pp": [
+            0.0,
+            0.0
+          ],
+          "radius_pp": 0.0
+        },
+        "wrong_top6": {
+          "interval_pp": [
+            0.0,
+            0.0
+          ],
+          "radius_pp": 0.0
+        }
+      }
+    },
+    "C_boost": {
+      "gold": {
+        "all_top6": 25,
+        "all_native": 40,
+        "entity_top6": 25,
+        "entity_native": 40,
+        "wrong_top6": 59,
+        "named_supported/all_top6": 13,
+        "named_supported/all_native": 18,
+        "named_supported/entity_top6": 13,
+        "named_supported/entity_native": 18,
+        "named_supported/wrong_top6": 19,
+        "wrong_top3": 48,
+        "named_supported/wrong_top3": 15,
+        "named_unsupported/all_native": 19,
+        "named_unsupported/entity_native": 19,
+        "named_unsupported/wrong_top3": 14,
+        "named_unsupported/wrong_top6": 20,
+        "generic_supported/wrong_top3": 19,
+        "generic_supported/wrong_top6": 20,
+        "named_unsupported/all_top6": 11,
+        "named_unsupported/entity_top6": 11,
+        "generic_supported/all_top6": 1,
+        "generic_supported/all_native": 3,
+        "generic_supported/entity_top6": 1,
+        "generic_supported/entity_native": 3
+      },
+      "judge_totals": [
+        {
+          "all_required": 25,
+          "wrong_top3": 48,
+          "wrong_top6": 59
+        },
+        {
+          "all_required": 25,
+          "wrong_top3": 48,
+          "wrong_top6": 59
+        }
+      ],
+      "judge_agreement": {
+        "all_required": 60,
+        "wrong_top3": 60,
+        "wrong_top6": 60
+      },
+      "judge_noise": {
+        "all_required": {
+          "interval_pp": [
+            0.0,
+            0.0
+          ],
+          "radius_pp": 0.0
+        },
+        "wrong_top3": {
+          "interval_pp": [
+            0.0,
+            0.0
+          ],
+          "radius_pp": 0.0
+        },
+        "wrong_top6": {
+          "interval_pp": [
+            0.0,
+            0.0
+          ],
+          "radius_pp": 0.0
+        }
+      }
+    }
+  },
+  "judge_usage": {
+    "attempts": 48,
+    "successful": 48,
+    "total_reported": 391021,
+    "accounted": 391021
+  }
+}
