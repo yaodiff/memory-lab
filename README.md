@@ -80,6 +80,11 @@ docs/              related work, CoALA mapping
 - **2026-11-25** — Fixed-pool reranking left overall top-five target recall unchanged in a small sample from our own setting. Targeted gains varied by query group.
 - **2026-11-25** — Entity navigation reached some targets outside the search list. Spending evidence slots on navigation lowered total target recall in a small targeted sample.
 - **2026-11-25** — A [Hindsight-inspired](https://github.com/vectorize-io/hindsight/blob/main/skills/hindsight-docs/references/developer/retrieval.md) replay fused dense, lexical, and graph results. In a small sample from our own setting, targeted top-five hits rose from about three in ten to about half. A small-model reranker helped complete evidence retrieval on the general gold set and gave back some of the targeted gain. The mixed results leave default rollout inconclusive.
+- **2026-11-25** — [E020](experiments/E020-structure-retrieval-diagnosis/README.md): entity cleanup left complete recall unchanged. Ranking never consulted the links, adding child attachments left parent fan-out high, and the evaluation had few multi-page cases.
+- **2026-11-25** — [E021](experiments/E021-heldout-retrieval-fusion/README.md): on an expanded 150-question holdout, fusing production results with BM25 improved complete top-five recall by about 15 points. A four-route page-level adaptation of Hindsight underperformed the baseline.
+- **2026-11-25** — [E022](experiments/E022-existing-link-reranking/README.md): ranking existing outgoing links improved multi-page evidence coverage with no additional SQL queries in a local replay. Shared-entity expansion added noise without a net multi-page gain.
+- **2026-11-25** — [E023](experiments/E023-page-applicability-replay/README.md): applicability notes reduced observed misuse in a 243-question fixed-retrieval replay. The correctness interval crossed zero, so the replay did not support enabling the notes by default.
+- **2026-11-25** — [E024](experiments/E024-content-gap-write-guard/README.md): new drafts reached the top five for 14 of 15 held-out phrasings. Write-time validation addressed regressions that a one-off cleanup could not prevent.
 
 ## Data policy
 

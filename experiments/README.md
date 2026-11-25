@@ -23,3 +23,8 @@
 | E017 | [Programmatic screening for duplicate entities](E017-duplicate-screening/README.md) | Does not work | 2026-11-22 | 无 |
 | E018 | [Adding rule pages and repeating the behavior evaluation](E018-rule-page-admission/README.md) | Inconclusive | 2026-11-22 | 无 |
 | E019 | [复验关系候选融合与任务上下文锚定](E019-graph-recall-revalidation/README.md) | Works（合成题找齐证据） | 2026-11-24 | 无 |
+| E020 | [实体整理为什么没改善检索](E020-structure-retrieval-diagnosis/README.md) | Does not work | 2026-11-25 | 无 |
+| E021 | [150 题留出集比较 BM25 融合与四路召回](E021-heldout-retrieval-fusion/README.md) | Works | 2026-11-25 | 无 |
+| E022 | [仅按问题重排已有出链](E022-existing-link-reranking/README.md) | Works | 2026-11-25 | 无 |
+| E023 | [给检索结果加适用范围提示](E023-page-applicability-replay/README.md) | Inconclusive | 2026-11-25 | 无 |
+| E024 | [发现缺内容并在增量写入时防回退](E024-content-gap-write-guard/README.md) | Works | 2026-11-25 | 无 |

@@ -78,6 +78,11 @@ docs/              相关工作、CoALA 对照
 - **2026-11-25** — 固定候选池后做重排，小样本的全局前五目标命中持平，定向收益随题组而变。
 - **2026-11-25** — 实体导航能找到搜索列表之外的一些目标。在定向小样本中，导航占用证据名额后，总目标命中反而下降。
 - **2026-11-25** — 参考 [Hindsight](https://github.com/vectorize-io/hindsight/blob/main/skills/hindsight-docs/references/developer/retrieval.md) 回放向量、关键词与图混排。自有场景小样本中，定向前五命中从约三成升至约一半。小模型重排提高了全局金标的证据找齐率，定向收益略有回落，默认上线仍缺证据。
+- **2026-11-25** — [E020](experiments/E020-structure-retrieval-diagnosis/README.md)：实体整理前后找齐率持平。主结果排序没有用到实体链接，追加子挂载后父实体仍关联很多页，原评测的多页题也偏少。
+- **2026-11-25** — [E021](experiments/E021-heldout-retrieval-fusion/README.md)：在扩展的 150 题留出集里，生产结果融合 BM25 后，前五找齐率升约 15 个百分点。参考 Hindsight 的四路页面级适配低于基线。
+- **2026-11-25** — [E022](experiments/E022-existing-link-reranking/README.md)：重排已有出链提高了多页证据找齐率，本地回放的 SQL 查询数持平。共享实体扩候选带来更多无关页，多页找齐无净收益。
+- **2026-11-25** — [E023](experiments/E023-page-applicability-replay/README.md)：243 题固定召回复验中，适用范围提示减少了观测到的误采纳。正确率差的区间跨零，暂不默认开启。
+- **2026-11-25** — [E024](experiments/E024-content-gap-write-guard/README.md)：补写草案在 15 条留出问法中的 14 条进入前五。一次性整理后旧路径仍会回写，因而把校验放到增量写入时。
 
 ## 数据政策
 
