@@ -28,3 +28,9 @@
 | E022 | [仅按问题重排已有出链](E022-existing-link-reranking/README.md) | Works | 2026-11-25 | 无 |
 | E023 | [给检索结果加适用范围提示](E023-page-applicability-replay/README.md) | Inconclusive | 2026-11-25 | 无 |
 | E024 | [发现缺内容并在增量写入时防回退](E024-content-gap-write-guard/README.md) | Works | 2026-11-25 | 无 |
+| E025 | [第二个团队空间的推广体检与四臂检索重放](E025-rollout-checkup-four-arm-replay/README.md) | Inconclusive | 2026-11-25 | 无 |
+| E026 | [外部仓同名错页、短句改写与回源核实三短板 50 题](E026-three-gap-regression/README.md) | Works / Inconclusive 分项 | 2026-11-25 | 无 |
+| E027 | [新补契约页的真实召回复测与大实体页稀释](E027-live-recall-contract-recheck/README.md) | Does not work as hoped | 2026-11-25 | 无 |
+| E028 | [会话到记忆主链路真实模板复测与上传假成功根因](E028-session-memory-v3-retest/README.md) | Works（最小修复原型 4/4；修复待合并） | 2026-11-25 | 无 |
+| E029 | [统一版与精简版指令两轮终验未过门槛，暂停提示词微调](E029-skill-prompt-acceptance-fail/README.md) | Does not meet the bar | 2026-11-26 | 无 |
+| E030 | [出链相关性重排的生产影子验证](E030-link-rerank-production-shadow/README.md) | Works as a safe shadow rollout | 2026-11-25 | 无 |
