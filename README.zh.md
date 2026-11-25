@@ -38,6 +38,7 @@
 | 03 | [你的记忆评测可能虚高了：同会话泄漏](essays/03-same-session-leakage.md) | [Your memory eval may be inflated: same-session leakage](essays/03-same-session-leakage.en.md) |
 | 04 | [读 Meta 的 Self-Improving Memory：让模型改自己的记忆提示，再蒸馏进权重](essays/04-self-improving-memory.md) | [Reading Meta's Self-Improving Memory: the model rewrites its own memory prompts, then learns them](essays/04-self-improving-memory.en.md) |
 | 05 | [让编码 Agent 从手头的仓库找到相关记忆](essays/05-aoci-code.md) | [Finding the right memories from the repository already in view](essays/05-aoci-code.en.md) |
+| 06 | [排序没变，Agent 为什么少用了记忆？](essays/06-memory-search-previews.md) | [Why did the agent use less memory when the ranking stayed the same?](essays/06-memory-search-previews.en.md) |
 
 ## 目录
 
