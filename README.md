@@ -77,6 +77,9 @@ docs/              related work, CoALA mapping
 - **2026-11-20** — [E003–E008 and E010–E012](experiments/README.md): studies on ranking, memory prompts, entity checks, page types, deduplication, and replay.
 - **2026-11-20** — [E009](experiments/E009-typed-relation-expansion/README.md): one-hop expansion from search results did not improve complete multi-page recall.
 - **2026-11-20** — Proposed: [context-anchored entity recall](plans/plan-context-anchored-recall.en.md). Rank memory attached to entities identified from the task context and show it in a separate panel alongside global search.
+- **2026-11-25** — Fixed-pool reranking left overall top-five target recall unchanged in a small sample from our own setting. Targeted gains varied by query group.
+- **2026-11-25** — Entity navigation reached some targets outside the search list. Spending evidence slots on navigation lowered total target recall in a small targeted sample.
+- **2026-11-25** — A [Hindsight-inspired](https://github.com/vectorize-io/hindsight/blob/main/skills/hindsight-docs/references/developer/retrieval.md) replay fused dense, lexical, and graph results. In a small sample from our own setting, targeted top-five hits rose from about three in ten to about half. A small-model reranker helped complete evidence retrieval on the general gold set and gave back some of the targeted gain. The mixed results leave default rollout inconclusive.
 
 ## Data policy
 
