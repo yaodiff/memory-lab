@@ -75,6 +75,9 @@ docs/              相关工作、CoALA 对照
 - **2026-11-20** — [E003–E008、E010–E012](experiments/README.md)：排序、记忆提示、实体检查、页面类型、去重及重放实验。
 - **2026-11-20** — [E009](experiments/E009-typed-relation-expansion/README.md)：从搜索结果沿实体关系扩一跳，多页全中率没有提高。
 - **2026-11-20** — 方向草案：[从任务上下文找实体](plans/plan-context-anchored-recall.md)，按问题排序实体挂接的记忆，在全局搜索旁边单独展示。
+- **2026-11-25** — 固定候选池后做重排，小样本的全局前五目标命中持平，定向收益随题组而变。
+- **2026-11-25** — 实体导航能找到搜索列表之外的一些目标。在定向小样本中，导航占用证据名额后，总目标命中反而下降。
+- **2026-11-25** — 参考 [Hindsight](https://github.com/vectorize-io/hindsight/blob/main/skills/hindsight-docs/references/developer/retrieval.md) 回放向量、关键词与图混排。自有场景小样本中，定向前五命中从约三成升至约一半。小模型重排提高了全局金标的证据找齐率，定向收益略有回落，默认上线仍缺证据。
 
 ## 数据政策
 
