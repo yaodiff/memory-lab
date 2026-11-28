@@ -52,3 +52,5 @@
 | E046 | [自写召回摘要灰度](E046-generated-preview-pilot/README.md) | Inconclusive | 2026-11-28 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
 | E047 | [出链重排开启后回收](E047-outgoing-link-live/README.md) | Inconclusive | 2026-11-28 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
 | E048 | [入库收紧及补引上层会话证据](E048-ingest-gate-evidence/README.md) | Inconclusive | 2026-11-28 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E049 | [实体作索引的两段检索](E049-entity-index-two-stage/README.md) | Does not work | 2026-11-29 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E050 | [冷藏后事件页定向抬权](E050-targeted-event-boost-after-cooling/README.md) | Inconclusive | 2026-11-29 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
