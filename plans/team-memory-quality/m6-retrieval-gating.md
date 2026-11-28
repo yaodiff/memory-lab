@@ -11,7 +11,7 @@
 
 ## Issue：事件护栏、时效与降级（[#99](https://github.com/yaodiff/memory-lab/issues/99)）
 
-- [x] Task：[E036](../../experiments/E036-event-weight-cap-replay/README.md)（内部小样本）。放宽上限在原权重下无增益，激进减轻降权后非金标的一次性事件占位约增至 3–15 倍。
+- [x] Task：[E036](../../experiments/E036-event-weight-cap-replay/README.md)（内部小样本）。放宽上限在原权重下无增益，激进减轻降权后非金标的一次性事件占位约增至 3–15 倍。本轮降权实验围绕全局调权，冷藏后正在按问法意图与事件页质量做定向重测。
 - [x] Task：[E035](../../experiments/E035-stale-projection-cleanup/README.md)（内部小样本）。清理后固定探针的前 30 位滞留副本占槽归零，抽到的新下架页均已移除检索副本。
 - [x] Task：[E040](../../experiments/E040-cross-category-supersession/README.md)（内部小样本）。跨类取代和证据时间完成定向线上验证。
 - [x] Task：[E039](../../experiments/E039-retrieval-load-isolation/README.md)（内部小样本）。后台限流隔离后的首小时，线上检索 P99 窗均值约降 69%。关键词支路另有原序回退，见 E032。

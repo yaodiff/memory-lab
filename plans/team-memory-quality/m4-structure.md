@@ -12,7 +12,7 @@
 ## Issue：归叶、带出处关系与推广（[#99](https://github.com/yaodiff/memory-lab/issues/99)）
 
 - [x] Task：[E044](../../experiments/E044-leaf-coverage-live/README.md)（内部小样本）。生产归叶率约 80.3%→95.0%，必要证据前五找齐没有显著改善。
-- [x] Task：[E045](../../experiments/E045-entity-structure-ranking/README.md)（内部小样本）。四种结构进主榜方法均未过影子门槛，保持离线。
+- [x] Task：[E045](../../experiments/E045-entity-structure-ranking/README.md)（内部小样本）。四种结构进主榜方法均未过影子门槛，保持离线。四种做法偏保守且触发有限，向量检索使用归叶前快照，生产实体结构目前仅用于关联页、尚未进入主榜候选生成，因此实体能否帮助检索仍待验证，正在用实体作索引的两段检索重测。
 - [x] Task：[E043](../../experiments/E043-curation-rollout-waves/README.md)（内部小样本）。第二波仅部分范围过闸，第三波候选复核过线后的生产验收仍只覆盖少量计划行。
 - [ ] Task：按范围核验归叶与带出处关系，保留逐批读回、冻结探针和回滚门槛。针对导航和写入归属独立衡量收益。
 
