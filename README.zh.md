@@ -39,6 +39,7 @@
 | 04 | [读 Meta 的 Self-Improving Memory：让模型改自己的记忆提示，再蒸馏进权重](essays/04-self-improving-memory.md) | [Reading Meta's Self-Improving Memory: the model rewrites its own memory prompts, then learns them](essays/04-self-improving-memory.en.md) |
 | 05 | [让编码 Agent 从手头的仓库找到相关记忆](essays/05-aoci-code.md) | [Finding the right memories from the repository already in view](essays/05-aoci-code.en.md) |
 | 06 | [排序没变，Agent 为什么少用了记忆？](essays/06-memory-search-previews.md) | [Why did the agent use less memory when the ranking stayed the same?](essays/06-memory-search-previews.en.md) |
+| 07 | [本体化记忆与实体治理](essays/07-typed-memory.md) | [Entity governance and ontology-backed memory](essays/07-typed-memory.en.md) |
 
 ## 目录
 
@@ -106,12 +107,20 @@ docs/              相关工作、CoALA 对照
 - **2026-11-28** — [E042](experiments/E042-workaround-scope-review/README.md)：**Does not work**（内部小样本）。全库活跃页抽样粗估约 4% 需处理，关键词候选的处置建议与人工完全一致约 14%，无法批量执行。改为人工复核常被召回页，整体抽样一致约 94%，含大量无需改动页，不能用作变更准确率。经逐条复核后小批补适用范围，固定题整组找齐持平。
 - **2026-11-28** — [E043](experiments/E043-curation-rollout-waves/README.md)：**Inconclusive**（内部小样本）。第二波约四成范围过干跑门槛，实际提交读回 100%，固定探针未见退步。第三波经细化后候选均过 90% 抽检门槛，但次日生产回执中已验收保留约 4%、移除约 7%，约九成仍未完成验收。干跑通过后仍需按线上批次核验。
 - **2026-11-28** — [E044](experiments/E044-leaf-coverage-live/README.md)：**Inconclusive**（内部小样本）。生产直挂叶比例由约 80.3% 升至 95.0%，写后读回 100%。留出题前五整组找齐 −1.4 个百分点（配对 95% 区间 −3.5 至 0），固定金标整题找齐和首位持平。前五错页率表面下降 7 个百分点，判定人变化使归因不成立。
-- **2026-11-28** — [E045](experiments/E045-entity-structure-ranking/README.md)：**Does not work**（内部小样本）。离线比较叶名扩候选、同叶提权、导航降权加行动页提权、带出处关系一跳扩展。四法均未过影子门槛。最好方案的留出前五找齐仅 +0.7 个百分点，区间触零，且固定金标首位下降约 2.9 个百分点。不开影子。四种做法偏保守且触发有限，向量检索使用归叶前快照，生产实体结构目前仅用于关联页、尚未进入主榜候选生成。两段检索复测显示实体扩候选的上限低，后续优先验证已入池页重排，见 [E049](experiments/E049-entity-index-two-stage/README.md)。
+- **2026-11-28** — [E045](experiments/E045-entity-structure-ranking/README.md)：**Does not work**（内部小样本）。离线比较叶名扩候选、同叶提权、导航降权加行动页提权、带出处关系一跳扩展。四法均未过影子门槛。最好方案的留出前五找齐仅 +0.7 个百分点，区间触零，且固定金标首位下降约 2.9 个百分点。不开影子。四种做法偏保守且触发有限，向量检索使用归叶前快照，生产实体结构目前仅用于关联页、尚未进入主榜候选生成。两段检索复测显示实体扩候选的上限低，因此另测固定池，见 [E049](experiments/E049-entity-index-two-stage/README.md)。
 - **2026-11-28** — [E046](experiments/E046-generated-preview-pilot/README.md)：**Inconclusive**（内部小样本）。首个 48 小时窗口排除叠加排序变更后，前三次检索任一采纳为 45.5%，基线 41.1% 落在估计区间内；扣同期对照的 +12.5 个百分点区间也跨零。单条注入长度中位数（按 bytes 计）约减少 83%。保留灰度，待第二窗口确认采纳。首窗样本不足以确认摘要对采纳的影响，效果仍待补样验证。
 - **2026-11-28** — [E047](experiments/E047-outgoing-link-live/README.md)：**Inconclusive**（内部小样本）。试点正式开启后的出链查询失败率为 0%，关键词融合仍在影子时，主命中两小时采纳与出链影子期相差约 +0.5 个百分点。正式模式缺逐槽变动和耗时日志，少量可核对案例中约一半变差。维持试点，先补观测再定推广。
 - **2026-11-28** — [E048](experiments/E048-ingest-gate-evidence/README.md)：**Inconclusive**（内部小样本）。线上 24 小时新增约降 79%，但比上周同窗高约 10%，暂不能归因于收紧；约 94% 的构建失败发生在外部调用链路，发布点近窗失败率基本持平。离线修复回放中约 54% 的硬拦样本回到原准入，约 13% 仍合理拦截，约 33% 待人工裁决。保留线上准入，补证修复仍是草稿。
-- **2026-11-29** — [E049](experiments/E049-entity-index-two-stage/README.md)：**Does not work**（内部小样本）。对线上前五未找齐题，前 2 叶 × 每叶前 2 页理论上可带回约 21% 题的全部缺页，但相对原有前 30 候选，仅约 2% 的题新增可补全；放宽到 8 叶 × 5 页，两项比例分别约 53% 和 9%。锁定配置的救回与退步相当，两种候选基线的前五找齐差值置信区间均跨零。停止推进实体候选扩张，后续优先验证已入池页的重排。
+- **2026-11-29** — [E049](experiments/E049-entity-index-two-stage/README.md)：**Does not work**（内部小样本）。对线上前五未找齐题，前 2 叶 × 每叶前 2 页理论上可带回约 21% 题的全部缺页，但相对原有前 30 候选，仅约 2% 的题新增可补全；放宽到 8 叶 × 5 页，两项比例分别约 53% 和 9%。锁定配置的救回与退步相当，两种候选基线的前五找齐差值置信区间均跨零。实体候选扩张未过线。后续规则池内重排也未救回，见 [E053](experiments/E053-rule-based-in-pool-reranking/README.md)。
 - **2026-11-29** — [E050](experiments/E050-targeted-event-boost-after-cooling/README.md)：**Inconclusive**（内部小样本）。只移除冷藏页后，最激进配置下留出题前五的单次非金标事件占槽减少约 20%，全局抬权仍会挤占可复用结果。按问法意图触发无找齐增益；按事件页质量分层抬权并保留事件上限 2，留出题前五整组找齐提高约 0.7 个百分点（配对 95% 区间 0 至 +2.2 个百分点）。仅保留为离线影子候选，暂不启用。
+- **2026-11-29** — [E051](experiments/E051-question-and-scope-enrichment/README.md)：**Works**（内部小样本，离线回放）。已有页补常见问法和适用范围，前五整组找齐约 +4.9 个百分点（配对 95% 区间 +1.5 至 +8.6）；仅用同版正文约 +2.8 个百分点。独立金标与错页率持平，待新留出复验。
+- **2026-11-29** — 记录[源码与论文精读](docs/agent-memory-deep-reading.md)和[实体治理综合分析](essays/07-typed-memory.md)。[里程碑](plans/team-memory-quality/README.md)优先按真实漏题定点补内容；遇到仍可复现的池内漏题再评估模型重排。类型和版本字段支撑明确时间／版本查询与实体下钻。
+- **2026-11-29** — [E052](experiments/E052-targeted-content-enrichment-live/README.md)：**Works**（内部小样本，线上写前后对照）。定点补内容后，可计分留出题前五整组找齐约 +5.6 个百分点，整题零退步。第二轮仅离线约 +1.4 个百分点（配对 95% 区间 0 至 +3.6）。
+- **2026-11-29** — [E053](experiments/E053-rule-based-in-pool-reranking/README.md)：**Does not work**（内部小样本）。锁定的子问补证及同版正文证据段重排，在两套基线的留出题均零救回。
+- **2026-11-29** — [E054](experiments/E054-entity-drilldown-navigation/README.md)：**Inconclusive**（内部小样本，导航回放）。额外读至多十页，固定金标的整组找齐约 +8.6 个百分点；只补齐当轮仍缺页留出题的约 2–7%。固定目录在测试预算内没有新增整题收益。
+- **2026-11-29** — [E055](experiments/E055-dedup-time-and-literal-replay/README.md)：**Does not work**（内部小样本）。来源与版本族去重、按明示时间／版本选证据、技术标识字面补槽，均未改变整组找齐。先补可核查的时间、版本与范围字段，再复验明确时间或版本查询。
+- **2026-11-29** — [E056](experiments/E056-blind-faq-enrichment/README.md)：**Does not work**（内部小样本）。不按漏题选页的高频页批量增补，离线前五整组找齐约 −1.4 个百分点（配对 95% 区间 −3.6 至 0）。继续按真实漏题定点补内容。
+- **2026-11-29** — [采纳周环比归因](plans/team-memory-quality/m5-evaluation.md#采纳周环比归因)（内部小样本）。两周应用同一过滤后，去除异常高采纳批次使前 3 次检索的任一参考回执跌幅从约 15.5 收窄至 6.2 个百分点，解释约六成表观跌幅。批次性质和剩余跌幅仍未归因。
 
 ## 数据政策
 

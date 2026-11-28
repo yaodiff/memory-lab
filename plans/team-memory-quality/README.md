@@ -51,11 +51,19 @@
 | Milestone | 状态 | Lab issue（未完成或待验证） | 文件 |
 | --- | --- | --- | --- |
 | [M1 写入质量](https://github.com/yaodiff/memory-lab/milestone/1) | 源头污染拦截已上线，收紧准入仍在观察，硬拦误伤的补证修复已离线回放。 | [#19](https://github.com/yaodiff/memory-lab/issues/19)、[#20](https://github.com/yaodiff/memory-lab/issues/20) | [m1-write-quality.md](m1-write-quality.md) |
-| [M2 让 Agent 搜得到](https://github.com/yaodiff/memory-lab/milestone/2) | 关键词融合已改善单范围留出题找齐率。真实会话采纳与整体退出条件仍待确认。 | [#21](https://github.com/yaodiff/memory-lab/issues/21)、[#22](https://github.com/yaodiff/memory-lab/issues/22) | [m2-findability.md](m2-findability.md) |
+| [M2 让 Agent 搜得到](https://github.com/yaodiff/memory-lab/milestone/2) | 定点补问法与范围已有小批线上找齐证据，规则池内重排未过线。先延续定点增补。 | [#21](https://github.com/yaodiff/memory-lab/issues/21)、[#22](https://github.com/yaodiff/memory-lab/issues/22) | [m2-findability.md](m2-findability.md) |
 | [M3 规范整合与去重](https://github.com/yaodiff/memory-lab/milestone/3) | 仅事件页冷藏已做生产分批，临时绕法改为人工定点补范围，规范整体退出条件仍待验证。 | [#23](https://github.com/yaodiff/memory-lab/issues/23)、[#24](https://github.com/yaodiff/memory-lab/issues/24) | [m3-consolidation.md](m3-consolidation.md) |
-| [M4 结构：个人偏好与实体关系](https://github.com/yaodiff/memory-lab/milestone/4) | 主要生产试点直挂叶比例约 95%。结构收益目前体现在归属和导航，主榜排序没有证实增益。 | [#25](https://github.com/yaodiff/memory-lab/issues/25)、[#26](https://github.com/yaodiff/memory-lab/issues/26) | [m4-structure.md](m4-structure.md) |
-| [M5 评测与度量](https://github.com/yaodiff/memory-lab/milestone/5) | 已拿到线上留出题对照。采纳受时间窗影响，错页归因受判定者影响，减少纠正仍待带分母的验证。 | [#27](https://github.com/yaodiff/memory-lab/issues/27)、[#28](https://github.com/yaodiff/memory-lab/issues/28)、[#29](https://github.com/yaodiff/memory-lab/issues/29) | [m5-evaluation.md](m5-evaluation.md) |
+| [M4 结构：个人偏好与实体关系](https://github.com/yaodiff/memory-lab/milestone/4) | 下钻回放在固定金标有收益，留出补齐有限。先补少量实体类型和可核验版本字段。 | [#25](https://github.com/yaodiff/memory-lab/issues/25)、[#26](https://github.com/yaodiff/memory-lab/issues/26) | [m4-structure.md](m4-structure.md) |
+| [M5 评测与度量](https://github.com/yaodiff/memory-lab/milestone/5) | 定点增补已做线上留出题复测。采纳周跌幅的大部分来自前一周基线构成，仍有剩余未归因。 | [#27](https://github.com/yaodiff/memory-lab/issues/27)、[#28](https://github.com/yaodiff/memory-lab/issues/28)、[#29](https://github.com/yaodiff/memory-lab/issues/29) | [m5-evaluation.md](m5-evaluation.md) |
 | [M6 检索门控](https://github.com/yaodiff/memory-lab/milestone/6) | 事件护栏保留，滞留检索副本已清理并上线防复发修复。错误断言和误拒的退出条件待验证。 | [#16](https://github.com/yaodiff/memory-lab/issues/16)、[#30](https://github.com/yaodiff/memory-lab/issues/30)、[#31](https://github.com/yaodiff/memory-lab/issues/31) | [m6-retrieval-gating.md](m6-retrieval-gating.md) |
+
+## 下一轮执行顺序
+
+1. [M2 按真实漏题定点补内容](m2-findability.md)。小批线上前五整组找齐约 +5.6 个百分点，原已找齐题未回落。继续逐题回源，优先补现有页，独立复验和读回。高频页无漏题导向的批量增补未过门槛。
+2. [M2 需要时评估模型重排](m2-findability.md)。规则子问补证、同版正文证据段重排均未救回留出题。完成定点增补后，如仍有可复现且有同版证据的池内漏题，再评估模型重排，在同池对基线。
+3. [M4 实体类型与版本字段](m4-structure.md)。从高歧义对象开始补类型、来源版本、发生日和适用版本及范围，为明确时间或版本的证据选择和导航下钻提供数据。先测历史专项与有读页预算的路径提示。
+
+[M5 评测](m5-evaluation.md)为三项工作冻结独立金标、错页和配对对照，区分找齐、读到、采纳和纠正。依据见[精读笔记](../../docs/agent-memory-deep-reading.md)和[双语综合分析](../../essays/07-typed-memory.md)。
 
 ## 待用户决定
 
