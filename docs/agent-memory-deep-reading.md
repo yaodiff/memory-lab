@@ -35,7 +35,7 @@
 ## 7. LangMem
 
 - **机制与位置**。热路径在指定 namespace 管理增删改。后台 MemoryStoreManager 查旧记忆，通过稳定 ID 应用整理结果，公开工厂默认关闭后台删除。多搜索根据会话生成查询，以 namespace 和 key 聚合，实际检索能力取决于注入的 store。 [管理工具](https://github.com/langchain-ai/langmem/blob/4beb9c36a40953f0/src/langmem/knowledge/tools.py#L271) · [多搜索](https://github.com/langchain-ai/langmem/blob/4beb9c36a40953f0/src/langmem/knowledge/extraction.py#L695) · [旧条目查找](https://github.com/langchain-ai/langmem/blob/4beb9c36a40953f0/src/langmem/knowledge/extraction.py#L937) · [工厂](https://github.com/langchain-ai/langmem/blob/4beb9c36a40953f0/src/langmem/knowledge/extraction.py#L1666)
-- **差异与用法**。团队共享页已有准入与出处。借按问项检索，先用冻结人工拆分在同池选证据。保留 [E024](../experiments/E024-content-gap-write-guard/README.md)、[E048](../experiments/E048-ingest-gate-evidence/README.md) 的准入对照，后台整理建议先审阅再应用。
+- **差异与用法**。团队共享页已有准入与出处。借按问项检索。冻结问项的规则补证已经失败，见 [E053](../experiments/E053-rule-based-in-pool-reranking/README.md)。保留 [E024](../experiments/E024-content-gap-write-guard/README.md)、[E048](../experiments/E048-ingest-gate-evidence/README.md) 的准入对照，后台整理建议先审阅再应用。
 
 ## 8. A-MEM
 
@@ -60,7 +60,7 @@
 ## 12. EnSIMem
 
 - **机制与证据**。划分主题连贯 episode 并保留原文，写入类型、实体及属性索引。查询拆为原子证据要求，依据点查、时间、复合或聚合决定证据配额，最后回 episode 读上下文。LongMemEval 两个判官均为 92.8%；LoCoMo 固定设置消融段落粒度、属性粒度、结构与稠密匹配及固定／自适应预算。论文指出在线规划延迟。 [方法 §3](https://arxiv.org/html/2609.27279v2#S3) · [消融 §4](https://arxiv.org/html/2609.27279v2#S4) · [限制 §5](https://arxiv.org/html/2609.27279v2#S5)
-- **差异与用法**。[E031](../experiments/E031-governance-retrieval-recheck/README.md) 的叶名锚定提升未传到下游。先用冻结问项、同版正文窗口和固定五槽量证据找齐。属性只有能明确消歧时才加入；在线模型规划和全量 episode 化各需验证成本。
+- **差异与用法**。[E031](../experiments/E031-governance-retrieval-recheck/README.md) 的叶名锚定提升未传到下游。冻结问项与同版正文窗口的规则对照已完成，见 [E053](../experiments/E053-rule-based-in-pool-reranking/README.md)。属性只有能明确消歧时才加入；在线模型规划和全量 episode 化各需验证成本。
 
 ## 13. Graph-Based Personalized Memory for LLM Agents
 
@@ -70,7 +70,7 @@
 ## 14. MemForest v4
 
 - **机制与证据**。独立抽事实，再规范化和放置，按 dirty 节点及受影响祖先刷新视图。事实与可重建视图分开，发布需要核验刷新。代码提供根摘要向下、事实近邻反查树及两路并集。§8.4 同事实底座的视图对照增加构建成本，点查和固定预算下总体差未显著。反向召回对短根摘要更稳。 [写入与查询 §4–7](https://arxiv.org/html/2605.23986v4#S4) · [查询消融 §8.4](https://arxiv.org/html/2605.23986v4#S8.SS4) · [刷新](https://github.com/Concyclics/MemForest/blob/864fbdf20d304816/src/build/tree_builder.py#L347) · [两向召回](https://github.com/Concyclics/MemForest/blob/864fbdf20d304816/src/query/retriever.py#L69)
-- **差异与用法**。[E049](../experiments/E049-entity-index-two-stage/README.md) 测了先找实体再找页。可在独立导航面板测正文证据反查实体，再按对象、范围回到原文。在 [E037](../experiments/E037-nightly-curation-readback/README.md) 基础上检查局部刷新与重建，不引入主榜扩池。
+- **差异与用法**。[E049](../experiments/E049-entity-index-two-stage/README.md) 测了先找实体再找页。下钻回放已记录于 [E054](../experiments/E054-entity-drilldown-navigation/README.md)。可在独立导航面板测问题相关路径提示与正文反查实体，再按对象、范围回到原文。在 [E037](../experiments/E037-nightly-curation-readback/README.md) 基础上检查局部刷新与重建，不引入主榜扩池。
 
 ## 15. Engineering Reliable Coding Agents
 
@@ -84,7 +84,9 @@
 
 ## 阅读后落点
 
-先做[同池证据重排和定点补内容](../plans/team-memory-quality/m2-findability.md)。[实体类型与写入绑定](../plans/team-memory-quality/m4-structure.md) 先测消歧、出处、范围及导航。取代、冷藏与投影更新沿用现有[整理计划](../plans/team-memory-quality/m3-consolidation.md)。
+按真实漏题[定点补内容](../plans/team-memory-quality/m2-findability.md)已有线上找齐证据；按召回频率批量增强未过线。两种规则池内重排均无救回，模型重排留待定点补内容后仍有确定的池内问题时评估。 [E052](../experiments/E052-targeted-content-enrichment-live/README.md) · [E053](../experiments/E053-rule-based-in-pool-reranking/README.md) · [E056](../experiments/E056-blind-faq-enrichment/README.md)
+
+[实体类型与写入绑定](../plans/team-memory-quality/m4-structure.md) 先补实体身份、出处和版本范围，支撑显式时间／版本证据选择及问题相关的下钻。下钻回放在固定金标有收益，留出补齐有限；固定目录在有限预算内没有整题增益。 [E054](../experiments/E054-entity-drilldown-navigation/README.md) · [E055](../experiments/E055-dedup-time-and-literal-replay/README.md)
 
 ## 补充阅读
 
@@ -102,7 +104,7 @@
 
 ### AgentMemRec
 
-把取候选、学习排序、有限上下文的组装拆开，使用组内证据找齐衡量最后一段。作者在 LongMemEval 的特征消融显示 turn 上下文特征贡献明显。我们以页为单位，沿 [E049](../experiments/E049-entity-index-two-stage/README.md) 固定候选，先用问项覆盖替代单页打分的贪心选法，再决定是否需要训练排序。 [组装 §4](https://arxiv.org/html/2610.34673v1#S4) · [结果 §6](https://arxiv.org/html/2610.34673v1#S6)
+把取候选、学习排序、有限上下文的组装拆开，使用组内证据找齐衡量最后一段。作者在 LongMemEval 的特征消融显示 turn 上下文特征贡献明显。我们以页为单位，沿 [E049](../experiments/E049-entity-index-two-stage/README.md) 固定候选做问项覆盖的规则对照未救回，见 [E053](../experiments/E053-rule-based-in-pool-reranking/README.md)。若定点补内容后仍有同版证据漏排，再考虑学习排序。 [组装 §4](https://arxiv.org/html/2610.34673v1#S4) · [结果 §6](https://arxiv.org/html/2610.34673v1#S6)
 
 ### SoMem
 
