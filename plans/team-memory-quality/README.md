@@ -3,7 +3,7 @@
 [← 方案索引](../README.md)
 
 - 状态：草案
-- 日期：创建 2026-11-19 / 最后更新 2026-11-19
+- 日期：创建 2026-11-19 / 最后更新 2026-11-29
 - 总 issue：#17 / 拆出的实验：见下方各 milestone 的 issue（相关：E003 / #16）
 
 ## 背景与问题
@@ -14,9 +14,9 @@
 
 | 关 | 状态 |
 | --- | --- |
-| 写对 | 改善明显，主要来自写入规则和写后检查 |
-| 搜得到 | 改善很小。多数想法没有越过事先定好的门槛 |
-| 用得上 | 搜到之后基本会照做，但「搜到」本身是瓶颈，这一关几乎没有单独改善 |
+| 写对 | 源头污染拦截已上线，收紧准入的误拦修复仍待生产验证 |
+| 搜得到 | 单范围关键词融合改善留出题前五找齐，结构进主榜的四种方案未过线 |
+| 用得上 | 摘要灰度压缩注入内容，真实会话采纳仍待确认 |
 | 少被纠正 | 尚未证实，要等足够长的观察窗口 |
 
 另一个发现：我们自己的评测设置多次高估或掩盖了效果。这些失败方式单独记在 [评测教训](../../lessons/memory-eval.md)，写入与整理方面的在 [整理教训](../../lessons/memory-curation.md)。
@@ -50,12 +50,12 @@
 
 | Milestone | 状态 | Lab issue（未完成或待验证） | 文件 |
 | --- | --- | --- | --- |
-| [M1 写入质量](https://github.com/yaodiff/memory-lab/milestone/1) | 内部大部分达成，剩余是在公开或合成数据上的验证。 | [#19](https://github.com/yaodiff/memory-lab/issues/19)、[#20](https://github.com/yaodiff/memory-lab/issues/20) | [m1-write-quality.md](m1-write-quality.md) |
-| [M2 让 Agent 搜得到](https://github.com/yaodiff/memory-lab/milestone/2) | 未达成。想法很多，越过门槛的很少。 | [#21](https://github.com/yaodiff/memory-lab/issues/21)、[#22](https://github.com/yaodiff/memory-lab/issues/22) | [m2-findability.md](m2-findability.md) |
-| [M3 规范整合与去重](https://github.com/yaodiff/memory-lab/milestone/3) | 进行中。整合已做，数量没有稳定下降。 | [#23](https://github.com/yaodiff/memory-lab/issues/23)、[#24](https://github.com/yaodiff/memory-lab/issues/24) | [m3-consolidation.md](m3-consolidation.md) |
-| [M4 结构：个人偏好与实体关系](https://github.com/yaodiff/memory-lab/milestone/4) | 进行中。 | [#25](https://github.com/yaodiff/memory-lab/issues/25)、[#26](https://github.com/yaodiff/memory-lab/issues/26) | [m4-structure.md](m4-structure.md) |
-| [M5 评测与度量](https://github.com/yaodiff/memory-lab/milestone/5) | 进行中。 | [#27](https://github.com/yaodiff/memory-lab/issues/27)、[#28](https://github.com/yaodiff/memory-lab/issues/28)、[#29](https://github.com/yaodiff/memory-lab/issues/29) | [m5-evaluation.md](m5-evaluation.md) |
-| [M6 检索门控](https://github.com/yaodiff/memory-lab/milestone/6) | 进行中。 | [#16](https://github.com/yaodiff/memory-lab/issues/16)、[#30](https://github.com/yaodiff/memory-lab/issues/30)、[#31](https://github.com/yaodiff/memory-lab/issues/31) | [m6-retrieval-gating.md](m6-retrieval-gating.md) |
+| [M1 写入质量](https://github.com/yaodiff/memory-lab/milestone/1) | 源头污染拦截已上线，收紧准入仍在观察，硬拦误伤的补证修复已离线回放。 | [#19](https://github.com/yaodiff/memory-lab/issues/19)、[#20](https://github.com/yaodiff/memory-lab/issues/20) | [m1-write-quality.md](m1-write-quality.md) |
+| [M2 让 Agent 搜得到](https://github.com/yaodiff/memory-lab/milestone/2) | 关键词融合已改善单范围留出题找齐率。真实会话采纳与整体退出条件仍待确认。 | [#21](https://github.com/yaodiff/memory-lab/issues/21)、[#22](https://github.com/yaodiff/memory-lab/issues/22) | [m2-findability.md](m2-findability.md) |
+| [M3 规范整合与去重](https://github.com/yaodiff/memory-lab/milestone/3) | 仅事件页冷藏已做生产分批，临时绕法改为人工定点补范围，规范整体退出条件仍待验证。 | [#23](https://github.com/yaodiff/memory-lab/issues/23)、[#24](https://github.com/yaodiff/memory-lab/issues/24) | [m3-consolidation.md](m3-consolidation.md) |
+| [M4 结构：个人偏好与实体关系](https://github.com/yaodiff/memory-lab/milestone/4) | 主要生产试点直挂叶比例约 95%。结构收益目前体现在归属和导航，主榜排序没有证实增益。 | [#25](https://github.com/yaodiff/memory-lab/issues/25)、[#26](https://github.com/yaodiff/memory-lab/issues/26) | [m4-structure.md](m4-structure.md) |
+| [M5 评测与度量](https://github.com/yaodiff/memory-lab/milestone/5) | 已拿到线上留出题对照。采纳受时间窗影响，错页归因受判定者影响，减少纠正仍待带分母的验证。 | [#27](https://github.com/yaodiff/memory-lab/issues/27)、[#28](https://github.com/yaodiff/memory-lab/issues/28)、[#29](https://github.com/yaodiff/memory-lab/issues/29) | [m5-evaluation.md](m5-evaluation.md) |
+| [M6 检索门控](https://github.com/yaodiff/memory-lab/milestone/6) | 事件护栏保留，滞留检索副本已清理并上线防复发修复。错误断言和误拒的退出条件待验证。 | [#16](https://github.com/yaodiff/memory-lab/issues/16)、[#30](https://github.com/yaodiff/memory-lab/issues/30)、[#31](https://github.com/yaodiff/memory-lab/issues/31) | [m6-retrieval-gating.md](m6-retrieval-gating.md) |
 
 ## 待用户决定
 

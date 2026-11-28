@@ -7,7 +7,15 @@
 
 - 目标：低相关和「相似但错」的结果不误导 Agent。
 - 退出条件：在留出的探针上测过拒答或弱相关门控，并报告误拒率和错误断言率。
-- 状态：进行中。
+- 状态：事件护栏保留，滞留检索副本已清理并上线防复发修复。错误断言和误拒的退出条件待验证。
+
+## Issue：事件护栏、时效与降级（[#99](https://github.com/yaodiff/memory-lab/issues/99)）
+
+- [x] Task：[E036](../../experiments/E036-event-weight-cap-replay/README.md)（内部小样本）。放宽上限在原权重下无增益，激进减轻降权后非金标的一次性事件占位约增至 3–15 倍。本轮降权实验围绕全局调权。冷藏后按问法意图抬权仍无增益，按事件页质量抬权仅保留为离线影子候选，见 [E050](../../experiments/E050-targeted-event-boost-after-cooling/README.md)。
+- [x] Task：[E035](../../experiments/E035-stale-projection-cleanup/README.md)（内部小样本）。清理后固定探针的前 30 位滞留副本占槽归零，抽到的新下架页均已移除检索副本。
+- [x] Task：[E040](../../experiments/E040-cross-category-supersession/README.md)（内部小样本）。跨类取代和证据时间完成定向线上验证。
+- [x] Task：[E039](../../experiments/E039-retrieval-load-isolation/README.md)（内部小样本）。后台限流隔离后的首小时，线上检索 P99 窗均值约降 69%。关键词支路另有原序回退，见 E032。
+- [ ] Task：保留降权与上限。用留出近似错页、应拒答、应保留的事件和新旧冲突探针核验误拒与错误断言，同时跟踪高峰降级率。
 
 ## Issue：相关度下限（[E003 / #16](https://github.com/yaodiff/memory-lab/issues/16)）
 

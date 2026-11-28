@@ -7,7 +7,15 @@
 
 - 目标：Agent 在做决定的时刻去搜，并且搜到对的页。
 - 退出条件：在真 Agent 上越过事先写好的命中率门槛，且触发率、命中率分开报告。
-- 状态：未达成。想法很多，越过门槛的很少。
+- 状态：关键词融合已改善单范围留出题找齐率。真实会话采纳与整体退出条件仍待确认。
+
+## Issue：线上找齐、预览和跟读（[#99](https://github.com/yaodiff/memory-lab/issues/99)）
+
+- [x] Task：[E032](../../experiments/E032-keyword-fusion-live/README.md)（内部小样本）。线上留出题前五找齐 +14.6 个百分点，配对区间高于零。两小时主命中采纳的对照调整后差值区间跨零。
+- [x] Task：[E038](../../experiments/E038-targeted-content-repair/README.md)（内部小样本）。定点补内容后线上探针有变化，同算法冻结回放的前五顺序一致，补丁单独收益待验证。
+- [x] Task：[E046](../../experiments/E046-generated-preview-pilot/README.md)（内部小样本）。自写召回摘要让单条注入长度中位数（按 bytes 计）降低约 83%，首个窗口的采纳尚未确认。
+- [x] Task：[E047](../../experiments/E047-outgoing-link-live/README.md)（内部小样本）。出链重排保持小范围开启，正式模式的变排幅度与耗时仍缺观测。
+- [ ] Task：对齐工作日窗口复核关键词融合，复测摘要采纳和必要回源，同时给出链重排补观测。触发、找齐、采纳分别报告。
 
 ## Issue：触发率与命中率是两个独立瓶颈吗（[#21](https://github.com/yaodiff/memory-lab/issues/21)）
 
