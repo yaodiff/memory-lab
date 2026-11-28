@@ -39,6 +39,7 @@
 | 04 | [读 Meta 的 Self-Improving Memory：让模型改自己的记忆提示，再蒸馏进权重](essays/04-self-improving-memory.md) | [Reading Meta's Self-Improving Memory: the model rewrites its own memory prompts, then learns them](essays/04-self-improving-memory.en.md) |
 | 05 | [让编码 Agent 从手头的仓库找到相关记忆](essays/05-aoci-code.md) | [Finding the right memories from the repository already in view](essays/05-aoci-code.en.md) |
 | 06 | [排序没变，Agent 为什么少用了记忆？](essays/06-memory-search-previews.md) | [Why did the agent use less memory when the ranking stayed the same?](essays/06-memory-search-previews.en.md) |
+| 07 | [本体化记忆与实体治理](essays/07-typed-memory.md) | [Entity governance and ontology-backed memory](essays/07-typed-memory.en.md) |
 
 ## 目录
 
@@ -112,6 +113,8 @@ docs/              相关工作、CoALA 对照
 - **2026-11-28** — [E048](experiments/E048-ingest-gate-evidence/README.md)：**Inconclusive**（内部小样本）。线上 24 小时新增约降 79%，但比上周同窗高约 10%，暂不能归因于收紧；约 94% 的构建失败发生在外部调用链路，发布点近窗失败率基本持平。离线修复回放中约 54% 的硬拦样本回到原准入，约 13% 仍合理拦截，约 33% 待人工裁决。保留线上准入，补证修复仍是草稿。
 - **2026-11-29** — [E049](experiments/E049-entity-index-two-stage/README.md)：**Does not work**（内部小样本）。对线上前五未找齐题，前 2 叶 × 每叶前 2 页理论上可带回约 21% 题的全部缺页，但相对原有前 30 候选，仅约 2% 的题新增可补全；放宽到 8 叶 × 5 页，两项比例分别约 53% 和 9%。锁定配置的救回与退步相当，两种候选基线的前五找齐差值置信区间均跨零。停止推进实体候选扩张，后续优先验证已入池页的重排。
 - **2026-11-29** — [E050](experiments/E050-targeted-event-boost-after-cooling/README.md)：**Inconclusive**（内部小样本）。只移除冷藏页后，最激进配置下留出题前五的单次非金标事件占槽减少约 20%，全局抬权仍会挤占可复用结果。按问法意图触发无找齐增益；按事件页质量分层抬权并保留事件上限 2，留出题前五整组找齐提高约 0.7 个百分点（配对 95% 区间 0 至 +2.2 个百分点）。仅保留为离线影子候选，暂不启用。
+- **2026-11-29** — [E051](experiments/E051-question-and-scope-enrichment/README.md)：**Works**（内部小样本，离线回放）。已有页补常见问法和适用范围，前五整组找齐约 +4.9 个百分点（配对 95% 区间 +1.5 至 +8.6）；仅用同版正文约 +2.8 个百分点。独立金标与错页率持平，待新留出复验。
+- **2026-11-29** — 记录[源码与论文精读](docs/agent-memory-deep-reading.md)和[实体治理综合分析](essays/07-typed-memory.md)。[里程碑](plans/team-memory-quality/README.md)将池内选齐证据和定点补内容排在前面；类型化、写入绑定、有效期和实体下钻用独立的证据与导航评测验证。
 
 ## 数据政策
 

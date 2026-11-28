@@ -54,3 +54,4 @@
 | E048 | [入库收紧及补引上层会话证据](E048-ingest-gate-evidence/README.md) | Inconclusive | 2026-11-28 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
 | E049 | [实体作索引的两段检索](E049-entity-index-two-stage/README.md) | Does not work | 2026-11-29 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
 | E050 | [冷藏后事件页定向抬权](E050-targeted-event-boost-after-cooling/README.md) | Inconclusive | 2026-11-29 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E051 | [已有页补问法和适用范围](E051-question-and-scope-enrichment/README.md) | Works | 2026-11-29 | [#101](https://github.com/yaodiff/memory-lab/issues/101) |
