@@ -7,7 +7,14 @@
 
 - 目标：个人偏好只对其所有者生效；实体关系有类型并受检查。
 - 退出条件：检索中没有跨用户泄漏；关系的效果在足够长的窗口里测过。
-- 状态：进行中。
+- 状态：主要生产试点直挂叶比例约 95%。结构收益目前体现在归属和导航，主榜排序没有证实增益。
+
+## Issue：归叶、带出处关系与推广（[#99](https://github.com/yaodiff/memory-lab/issues/99)）
+
+- [x] Task：[E044](../../experiments/E044-leaf-coverage-live/README.md)（内部小样本）。生产归叶率约 80.3%→95.0%，必要证据前五找齐没有显著改善。
+- [x] Task：[E045](../../experiments/E045-entity-structure-ranking/README.md)（内部小样本）。四种结构进主榜方法均未过影子门槛，保持离线。
+- [x] Task：[E043](../../experiments/E043-curation-rollout-waves/README.md)（内部小样本）。第二波仅部分范围过闸，第三波候选复核过线后的生产验收仍只覆盖少量计划行。
+- [ ] Task：按范围核验归叶与带出处关系，保留逐批读回、冻结探针和回滚门槛。针对导航和写入归属独立衡量收益。
 
 ## Issue：个人偏好按所有者生效（[#25](https://github.com/yaodiff/memory-lab/issues/25)）
 

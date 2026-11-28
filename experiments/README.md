@@ -34,3 +34,21 @@
 | E028 | [会话到记忆主链路真实模板复测与上传假成功根因](E028-session-memory-v3-retest/README.md) | Works（最小修复原型 4/4；修复待合并） | 2026-11-25 | 无 |
 | E029 | [统一版与精简版指令两轮终验未过门槛，暂停提示词微调](E029-skill-prompt-acceptance-fail/README.md) | Does not meet the bar | 2026-11-26 | 无 |
 | E030 | [出链相关性重排的生产影子验证](E030-link-rerank-production-shadow/README.md) | Works as a safe shadow rollout | 2026-11-25 | 无 |
+| E031 | [治理后线上检索复测](E031-governance-retrieval-recheck/README.md) | Inconclusive | 2026-11-27 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E032 | [关键词融合线上找齐率](E032-keyword-fusion-live/README.md) | Works | 2026-11-27 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E033 | [拦截纯审批会话并清理存量](E033-approval-only-ingestion/README.md) | Works | 2026-11-27 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E034 | [仅事件页冷藏的生产试点](E034-event-only-cooling-live/README.md) | Works | 2026-11-27 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E035 | [清理滞留检索副本](E035-stale-projection-cleanup/README.md) | Works | 2026-11-27 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E036 | [放宽事件页降权和结果上限](E036-event-weight-cap-replay/README.md) | Does not work | 2026-11-27 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E037 | [夜间整理后保留证据和导航](E037-nightly-curation-readback/README.md) | Works | 2026-11-27 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E038 | [定点补内容和常见问法](E038-targeted-content-repair/README.md) | Inconclusive | 2026-11-27 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E039 | [后台限流隔离与检索长尾](E039-retrieval-load-isolation/README.md) | Works | 2026-11-27 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E040 | [跨类取代与证据时间](E040-cross-category-supersession/README.md) | Works | 2026-11-27 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E041 | [检索后的记忆使用规则](E041-memory-use-guidance/README.md) | Inconclusive | 2026-11-27 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E042 | [用关键词批量修正临时绕法](E042-workaround-scope-review/README.md) | Does not work | 2026-11-28 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E043 | [跨范围推广按批过闸](E043-curation-rollout-waves/README.md) | Inconclusive | 2026-11-28 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E044 | [实体归叶与线上排序复测](E044-leaf-coverage-live/README.md) | Inconclusive | 2026-11-28 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E045 | [实体结构进入主榜的四种方法](E045-entity-structure-ranking/README.md) | Does not work | 2026-11-28 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E046 | [自写召回摘要灰度](E046-generated-preview-pilot/README.md) | Inconclusive | 2026-11-28 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E047 | [出链重排开启后回收](E047-outgoing-link-live/README.md) | Inconclusive | 2026-11-28 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |
+| E048 | [入库收紧及补引上层会话证据](E048-ingest-gate-evidence/README.md) | Inconclusive | 2026-11-28 | [#99](https://github.com/yaodiff/memory-lab/issues/99) |

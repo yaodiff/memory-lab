@@ -7,7 +7,14 @@
 
 - 目标：规范少而精、不重复、不矛盾，且不丢约束。
 - 退出条件：整合方法的丢内容率和误合率在事先定好的门槛内。
-- 状态：进行中。整合已做，数量没有稳定下降。
+- 状态：仅事件页冷藏已做生产分批，临时绕法改为人工定点补范围，规范整体退出条件仍待验证。
+
+## Issue：夜间整理、冷藏与适用范围（[#99](https://github.com/yaodiff/memory-lab/issues/99)）
+
+- [x] Task：[E034](../../experiments/E034-event-only-cooling-live/README.md)（内部小样本）。仅事件页冷藏后，在架事件页减少约 43%，试点验过原件及温层回找。
+- [x] Task：[E037](../../experiments/E037-nightly-curation-readback/README.md)（内部小样本）。首个完整夜间整理窗口的复核未发现链接、摘要或触发词退化。
+- [x] Task：[E042](../../experiments/E042-workaround-scope-review/README.md)（内部小样本）。关键词初筛的处置建议只约 14% 与人工完全一致。小批人工复核后才补适用范围，固定题整组找齐持平。
+- [ ] Task：观察历史回执回找、默认检索和回滚，再决定是否夜间自动冷藏。继续人工复核高召回页的适用范围，保留正式约束和依据。
 
 ## Issue：按对去重还是按主题整合（[#23](https://github.com/yaodiff/memory-lab/issues/23)）
 

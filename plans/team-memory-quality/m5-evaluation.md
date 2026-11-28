@@ -7,7 +7,15 @@
 
 - 目标：评测不高估也不掩盖效果；判官身份和指标分母写清楚。
 - 退出条件：干净 case 协议有文档；判官独立性已检查；前后纠正次数有一次带分母的对比。
-- 状态：进行中。
+- 状态：已拿到线上留出题对照。采纳受时间窗影响，错页归因受判定者影响，减少纠正仍待带分母的验证。
+
+## Issue：同窗口、同判定与因果归因（[#99](https://github.com/yaodiff/memory-lab/issues/99)）
+
+- [x] Task：[E031](../../experiments/E031-governance-retrieval-recheck/README.md)（内部小样本）。同一判定者复核的前五错页槽位率下降约 2.7 个百分点，区间跨零。
+- [x] Task：[E044](../../experiments/E044-leaf-coverage-live/README.md)（内部小样本）。归叶后错页率表面下降约 7 个百分点，判定者变更使前后归因不可用。
+- [x] Task：[E032](../../experiments/E032-keyword-fusion-live/README.md)（内部小样本）。采纳前移一天重切后差值由约 −8.2 变为 −0.8 个百分点，窗口敏感。
+- [x] Task：[E041](../../experiments/E041-memory-use-guidance/README.md)（内部小样本）。冻结题的正确处理和必要回源持平，使用规则的生产纠正率仍待复核。
+- [ ] Task：冻结判定和打分口径，按匹配工作日窗口分开报告找齐、采纳、拒用和每百会话纠正，保留配对区间与逐题回归。
 
 ## Issue：评测要贴近生产（无 issue，已完成）
 
